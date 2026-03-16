@@ -1,0 +1,2182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tech phone </title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+        }
+
+        /* شريط التنقل */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+          display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .logo i {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-left: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* قسم الترحيب */
+        #welcome {
+            margin-top: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .welcome-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .text-content h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .text-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .welcome-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .welcome-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .image-content img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* قسم الهواتف */
+        #phones {
+            padding: 80px 20px;
+            background: #f5f7fa;
+        }
+
+        .phones-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .phones-content h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .search-section {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 45px 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-btn, .reset-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .reset-btn {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .search-btn:hover, .reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        .phone-row {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .phone-row:hover {
+            background: #f8f9fa;
+            transform: scale(1.01);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* قسم التفاصيل */
+        #details {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .details-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .details-content h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .phone-details-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            color: white;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .detail-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .detail-item i {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .detail-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .detail-item p {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .back-to-table {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* تذييل الصفحة */
+        #footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #b0c4de;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-col ul li i {
+            margin-left: 10px;
+            width: 20px;
+            color: #667eea;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #667eea;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b0c4de;
+        }
+
+        /* للهواتف المحمولة */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .welcome-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .text-content h1 {
+                font-size: 2em;
+            }
+            
+            .search-section {
+                flex-direction: column;
+            }
+            
+            .search-box {
+                max-width: 100%;
+            }
+            
+            .phone-details-card {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-mobile-alt"></i>
+                تيك فون
+            </a>
+            <div class="nav-links">
+                <a href="#welcome">الرئيسية</a>
+                <a href="#phones">الهواتف</a>
+                <a href="css.html">المقارنة</a>
+                <a href="contact us.html">اتصل بنا</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم الترحيب -->
+    <section id="welcome">
+        <div class="welcome-content">
+            <div class="text-content">
+                <h1>مرحباً بكم في تيك فون</h1>
+                <p>اكتشف أحدث الهواتف الذكية مع المواصفات التفصيلية والمقارنات الشاملة</p>
+                <button class="welcome-btn" onclick="document.getElementById('phones').scrollIntoView({behavior: 'smooth'})">
+                    عرض الهواتف <i class="fas fa-arrow-down"></i>
+                </button>
+            </div>
+            <div class="image-content">
+                <img src="19287c8799f8c0ce38103cfe7a240bea-removebg-preview.png" alt="أيفون">
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الهواتف -->
+    <section id="phones">
+        <div class="phones-content">
+            <h2>مواصفات الهواتف</h2>
+            
+            <div class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="ابحث عن هاتف...">
+                </div>
+                <button class="search-btn" onclick="searchPhones()">
+                    <i class="fas fa-check"></i> موافق
+                </button>
+                <button class="reset-btn" onclick="resetSearch()">
+                    <i class="fas fa-undo"></i> إعادة تعيين
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table id="phoneTable">
+                    <thead>
+                        <tr>
+                            <th>الهاتف</th>
+                            <th>البطارية</th>
+                            <th>الشاشة</th>
+                            <th>المعالج</th>
+                            <th>الكاميرا</th>
+                            <th>الرام (RAM)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="phoneTableBody">
+                        <!-- البيانات رح تتحط هنا عن طريق JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التفاصيل -->
+    <section id="details">
+        <div class="details-content">
+            <h2 id="detailPhoneName">تفاصيل الهاتف</h2>
+            <div class="phone-details-card">
+                <div class="detail-item">
+                    <i class="fas fa-battery-full" style="color: #4caf50;"></i>
+                    <h3>البطارية</h3>
+                    <p id="detailBattery">-</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-tv" style="color: #2196f3;"></i>
+                    <h3>الشاشة</h3>
+                    <p id="detailDisplay">-</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-microchip" style="color: #ff9800;"></i>
+                    <h3>المعالج</h3>
+                    <p id="detailProcessor">-</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-camera" style="color: #e91e63;"></i>
+                    <h3>الكاميرا</h3>
+                    <p id="detailCamera">-</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-memory" style="color: #9c27b0;"></i>
+                    <h3>الرام (RAM)</h3>
+                    <p id="detailRAM">-</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-database" style="color: #ff5722;"></i>
+                    <h3>التخزين</h3>
+                    <p id="detailStorage">-</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-code" style="color: #607d8b;"></i>
+                    <h3>نظام التشغيل</h3>
+                    <p id="detailOS">-</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-weight-hanging" style="color: #795548;"></i>
+                    <h3>الوزن</h3>
+                    <p id="detailWeight">-</p>
+                </div>
+            </div>
+            <div class="back-to-table">
+                <button class="back-btn" onclick="document.getElementById('phones').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-arrow-up"></i> العودة لقائمة الهواتف
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <section id="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>تيك فون</h3>
+                    <ul>
+                        <li><a href="#welcome">الرئيسية</a></li>
+                        <li><a href="#phones">الهواتف</a></li>
+                        <li><a href="css.html">المقارنة</a></li>
+                        <li><a href="contact us.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#">أحدث الهواتف</a></li>
+                        <li><a href="#">المراجعات</a></li>
+                        <li><a href="#">أخبار التقنية</a></li>
+                        <li><a href="#">دليل الشراء</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>تابعنا على</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2026 تيك فون - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // قاعدة بيانات الهواتف - 10 أنواع
+const phones = [
+    {
+        name: "Samsung Galaxy S26 Ultra",
+        battery: "5,000 mAh",
+        display: "6.9 إنش Dynamic AMOLED 2X QHD+",
+        processor: "Qualcomm Snapdragon 8 Elite Gen 5 for Galaxy",
+        camera: "200 + 50 + 50 + 10 ميجابكسل",
+        ram: "12/16 جيجابايت",
+        storage: "256/512/1024 جيجابايت",
+        os: "Android 16 (One UI 8.5)",
+        weight: "214 جرام",
+            hidden:true
+    },
+    {
+        name: "Samsung Galaxy S26+",
+        battery: "4,900 mAh",
+        display: "6.7 إنش Dynamic AMOLED 2X QHD+",
+        processor: "Exynos 2600 (عالمي) / Snapdragon 8 Elite Gen 5 (للولايات المتحدة)",
+        camera: "50 + 12 + 10 ميجابكسل",
+        ram: "12 جيجابايت",
+        storage: "256/512 جيجابايت",
+        os: "Android 16 (One UI 8.5)",
+        weight: "190 جرام",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S26",
+        battery: "4,300 mAh",
+        display: "6.3 إنش Dynamic AMOLED 2X FHD+",
+        processor: "Exynos 2600 (عالمي) / Snapdragon 8 Elite Gen 5 (للولايات المتحدة)",
+        camera: "50 + 12 + 10 ميجابكسل",
+        ram: "12 جيجابايت",
+        storage: "256/512 جيجابايت",
+        os: "Android 16 (One UI 8.5)",
+        weight: "167 جرام",
+        hidden:false
+
+    },
+    {
+        name: "Samsung Galaxy S25 Ultra",
+        battery: "5,000 mAh",
+        display: "6.9 إنش Dynamic AMOLED 2X QHD+",
+        processor: "Qualcomm Snapdragon 8 Elite for Galaxy (3 نانومتر)",
+        camera: "200 + 50 + 50 + 10 ميجابكسل",
+        ram: "12 جيجابايت",
+        storage: "256/512/1024 جيجابايت",
+        os: "Android 15 (One UI 7)",
+        weight: "218 جرام",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S25+",
+        battery: "4,900 mAh",
+        display: "6.7 إنش Dynamic AMOLED 2X QHD+",
+        processor: "Qualcomm Snapdragon 8 Elite for Galaxy (3 نانومتر)",
+        camera: "50 + 12 + 10 ميجابكسل",
+        ram: "12 جيجابايت",
+        storage: "256/512 جيجابايت",
+        os: "Android 15 (One UI 7)",
+        weight: "190 جرام",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S25",
+        battery: "4,000 mAh",
+        display: "6.2 إنش Dynamic AMOLED 2X FHD+",
+        processor: "Qualcomm Snapdragon 8 Elite for Galaxy (3 نانومتر)",
+        camera: "50 + 12 + 10 ميجابكسل",
+        ram: "12 جيجابايت",
+        storage: "128/256/512 جيجابايت",
+        os: "Android 15 (One UI 7)",
+        weight: "162 جرام",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S24 Ultra",
+        battery: "5,000 mAh",
+        display: "6.8 إنش Dynamic LTPO AMOLED 2X",
+        processor: "Snapdragon 8 Gen 3 for Galaxy",
+        camera: "200 + 12 + 50 + 10 ميجابكسل",
+        ram: "12 جيجابايت",
+        storage: "256/512/1024 جيجابايت",
+        os: "Android 14 (One UI 6.1)",
+        weight: "232 جرام",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S24+",
+        battery: "4,900 mAh",
+        display: "6.7 إنش Dynamic LTPO AMOLED 2X",
+        processor: "Exynos 2400 (عالمي) / Snapdragon 8 Gen 3 (للولايات المتحدة)",
+        camera: "50 + 12 + 10 ميجابكسل",
+        ram: "12 جيجابايت",
+        storage: "256/512 جيجابايت",
+        os: "Android 14 (One UI 6.1)",
+        weight: "196 جرام",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S24",
+        battery: "4,000 mAh",
+        display: "6.2 إنش Dynamic LTPO AMOLED 2X",
+        processor: "Exynos 2400 (عالمي) / Snapdragon 8 Gen 3 (للولايات المتحدة)",
+        camera: "50 + 12 + 10 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "128/256/512 جيجابايت",
+        os: "Android 14 (One UI 6.1)",
+        weight: "167 جرام",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S23 Ultra",
+        battery: "5,000 mAh",
+        display: "6.8 إنش Dynamic AMOLED 2X",
+        processor: "Snapdragon 8 Gen 2 for Galaxy",
+        camera: "200 + 12 + 10 + 10 ميجابكسل",
+        ram: "8/12 جيجابايت",
+        storage: "256/512/1024 جيجابايت",
+        os: "Android 13 (One UI 5.1)",
+        weight: "229 جرام",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S23+",
+        battery: "4,700 mAh",
+        display: "6.6 إنش Dynamic AMOLED 2X",
+        processor: "Snapdragon 8 Gen 2 for Galaxy",
+        camera: "50 + 12 + 10 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "256/512 جيجابايت",
+        os: "Android 13 (One UI 5.1)",
+        weight: "196 جرام",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S23",
+        battery: "3,900 mAh",
+        display: "6.1 إنش Dynamic AMOLED 2X",
+        processor: "Snapdragon 8 Gen 2 for Galaxy",
+        camera: "50 + 12 + 10 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "128/256/512 جيجابايت",
+        os: "Android 13 (One UI 5.1)",
+        weight: "168 جرام",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S22",
+        battery: "3,700 mAh",
+        display: "6.1 إنش Dynamic AMOLED 2X",
+        processor: "Qualcomm Snapdragon 8 Gen 1",
+        camera: "50 + 12 + 10 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "128/256 جيجابايت",
+        os: "Android 12 (One UI 4.1)",
+        weight: "167 جرام",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S22+",
+        battery: "4,500 mAh",
+        display: "6.6 إنش Dynamic AMOLED 2X",
+        processor: "Qualcomm Snapdragon 8 Gen 1",
+        camera: "50 + 12 + 10 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "128/256 جيجابايت",
+        os: "Android 12 (One UI 4.1)",
+        weight: "196 جرام (تقديري)",
+        hidden:true
+    },
+    {
+        name: "Samsung Galaxy S22 Ultra",
+        battery: "5,000 mAh",
+        display: "6.8 إنش Dynamic AMOLED 2X",
+        processor: "Qualcomm Snapdragon 8 Gen 1",
+        camera: "108 + 12 + 10 + 10 ميجابكسل",
+        ram: "8/12 جيجابايت",
+        storage: "128/256/512 جيجابايت",
+        os: "Android 12 (One UI 4.1)",
+        weight: "229 جرام (تقديري)",
+        hidden:true
+    },
+    {
+        name: "iPhone 15",
+        battery: "3,349 mAh",
+        display: "6.1 إنش Super Retina XDR (OLED)",
+        processor: "Apple A16 Bionic",
+        camera: "48 + 12 ميجابكسل",
+        ram: "6 جيجابايت",
+        storage: "128/256/512 جيجابايت",
+        os: "iOS 17",
+        weight: "171 جرام",
+        hidden:true
+    },
+    {
+        name: "iPhone 15 Plus",
+        battery: "4,383 mAh",
+        display: "6.7 إنش Super Retina XDR (OLED)",
+        processor: "Apple A16 Bionic",
+        camera: "48 + 12 ميجابكسل",
+        ram: "6 جيجابايت",
+        storage: "128/256/512 جيجابايت",
+        os: "iOS 17",
+        weight: "201 جرام",
+        hidden:true
+    },
+    {
+        name: "iPhone 15 Pro Max",
+        battery: "4,422 mAh",
+        display: "6.7 إنش Super Retina XDR (OLED) بـ ProMotion",
+        processor: "Apple A17 Pro",
+        camera: "48 + 12 + 12 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "256/512/1024 جيجابايت",
+        os: "iOS 17",
+        weight: "221 جرام",
+        hidden:true
+    },
+    {
+        name: "iPhone 15 Pro",
+        battery: "3,274 mAh",
+        display: "6.1 إنش Super Retina XDR (OLED) بـ ProMotion (120Hz)",
+        processor: "Apple A17 Pro",
+        camera: "48 + 12 + 12 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "128/256/512/1024 جيجابايت",
+        os: "iOS 17",
+        weight: "187 جرام",
+        hidden:true
+    },
+    {
+        name: "iPhone 16",
+        battery: "3,561 mAh",
+        display: "6.1 إنش Super Retina XDR (OLED)",
+        processor: "Apple A18",
+        camera: "48 + 12 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "128/256/512 جيجابايت",
+        os: "iOS 18",
+        weight: "170 جرام",
+        hidden:true
+    },
+    {
+        name: "iPhone 16 Plus",
+        battery: "4,674 mAh", // سعة تقديرية
+        display: "6.7 إنش Super Retina XDR (OLED)",
+        processor: "Apple A18",
+        camera: "48 + 12 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "128/256/512 جيجابايت",
+        os: "iOS 18",
+        weight: "199 جرام",
+        hidden:true // وزن تقديري
+    },
+    {
+        name: "iPhone 16 Pro",
+        battery: "3,355 mAh", // سعة تقديرية
+        display: "6.3 إنش Super Retina XDR (OLED) بـ ProMotion (120Hz)",
+        processor: "Apple A18 Pro",
+        camera: "48 + 48 + 12 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "128/256/512/1024 جيجابايت",
+        os: "iOS 18",
+        weight: "187 جرام",
+        hidden:true
+    },
+    {
+        name: "iPhone 16 Pro Max",
+        battery: "4,685 mAh",
+        display: "6.9 إنش Super Retina XDR (OLED) بـ ProMotion (120Hz)",
+        processor: "Apple A18 Pro",
+        camera: "48 + 48 + 12 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "256/512/1024 جيجابايت",
+        os: "iOS 18",
+        weight: "227 جرام",
+        hidden:true
+    },
+    {
+        name: "iPhone 17",
+        battery: "3,692 mAh",
+        display: "6.3 إنش LTPO Super Retina XDR (OLED) بـ 120Hz",
+        processor: "Apple A19",
+        camera: "48 + 48 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "256/512 جيجابايت",
+        os: "iOS 19",
+        weight: "177 جرام",
+        hidden:false
+    },
+    {
+        name: "iPhone 17 Plus",
+        battery: "4,000 mAh", // سعة تقديرية
+        display: "6.7 إنش LTPO Super Retina XDR (OLED) بـ 120Hz",
+        processor: "Apple A19",
+        camera: "48 + 48 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "256/512 جيجابايت",
+        os: "iOS 19",
+        weight: "190 جرام",
+        hidden:true
+    },
+    {
+        name: "iPhone 17 Pro",
+        battery: "3,700 mAh", // سعة تقديرية
+        display: "6.3 إنش LTPO Super Retina XDR (OLED) بـ ProMotion (120Hz)",
+        processor: "Apple A19 Pro",
+        camera: "48 + 48 + 12 ميجابكسل",
+        ram: "8 جيجابايت",
+        storage: "256/512/1024 جيجابايت",
+        os: "iOS 19",
+        weight: "185 جرام",
+        hidden:false // وزن تقديري
+    },
+    {
+        name: "iPhone 17 Pro Max",
+        battery: "4,200 mAh", // سعة تقديرية
+        display: "6.9 إنش LTPO Super Retina XDR (OLED) بـ ProMotion (120Hz)",
+        processor: "Apple A19 Pro",
+        camera: "48 + 48 + 12 ميجابكسل",
+        ram: "8/12 جيجابايت",
+        storage: "256/512/1024 جيجابايت",
+        os: "iOS 19",
+        weight: "225 جرام",
+        hidden:false// وزن تقديري
+        },
+    {
+name: "Xiaomi Redmi Note 13 Pro",
+battery: "5100 mAh",
+display: "6.67 انش AMOLED",
+processor: "MediaTek Helio G99",
+camera: "200 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "187 g",
+hidden: true
+    },
+    {
+name: "Xiaomi Redmi K70 Pro",
+battery: "5000 mAh",
+display: "6.67 انش OLED 2K",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 12 + 5 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 14 (HyperOS)",
+weight: "209 g",
+hidden: true
+    },
+    {
+name: "Xiaomi Redmi 13C",
+battery: "5000 mAh",
+display: "6.74 انش LCD 90Hz",
+processor: "MediaTek Helio G99",
+camera: "50 + 2 ميجابكسل",
+ram: "6 GB",
+storage: "128 GB",
+os: "Android 13 (MIUI 14)",
+weight: "192 g",
+hidden: true
+},
+    
+    {
+name: "Xiaomi Redmi Note 12",
+battery: "5000 mAh",
+display: "6.67 انش AMOLED",
+processor: "Snapdragon 685",
+camera: "48 + 8 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "128 GB",
+os: "Android 12 (MIUI 13)",
+weight: "183.5 g",
+hidden: true
+},
+    {
+name: "Xiaomi Redmi K60",
+battery: "5500 mAh",
+display: "6.67 انش OLED 2K",
+processor: "Snapdragon 8+ Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "199 g",
+hidden: true
+},
+    {
+name: "Xiaomi Redmi A3",
+battery: "5000 mAh",
+display: "6.71 انش LCD",
+processor: "MediaTek Helio G36",
+camera: "8 ميجابكسل",
+ram: "3 GB",
+storage: "64 GB",
+os: "Android 14 (Go)",
+weight: "193 g",
+hidden: false
+},
+    {
+name: "Xiaomi Redmi Note 13 5G",
+battery: "5000 mAh",
+display: "6.6 انش AMOLED",
+processor: "Dimensity 6080",
+camera: "108 + 8 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "173.5 g",
+hidden: true
+},
+    {
+name: "Xiaomi Redmi 12",
+battery: "5000 mAh",
+display: "6.79 انش LCD",
+processor: "MediaTek Helio G88",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "128 GB",
+os: "Android 13 (MIUI 14)",
+weight: "198.5 g",
+hidden: true
+},
+    {
+name: "Xiaomi Redmi K70E",
+battery: "5500 mAh",
+display: "6.67 انش OLED",
+processor: "Dimensity 8300 Ultra",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 14 (HyperOS)",
+weight: "198 g",
+hidden: true
+},
+    {
+name: "Xiaomi Redmi Note 11 Pro",
+battery: "5000 mAh",
+display: "6.67 انش AMOLED",
+processor: "Snapdragon 695",
+camera: "108 + 8 + 2 ميجابكسل",
+ram: "6 GB",
+storage: "128 GB",
+os: "Android 11 (MIUI 13)",
+weight: "202 g",
+hidden: true
+},
+    {
+name: "Xiaomi Redmi 10 2024",
+battery: "5000 mAh",
+display: "6.71 انش LCD",
+processor: "MediaTek Helio G88",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "128 GB",
+os: "Android 12 (MIUI 13)",
+weight: "181 g",
+hidden: true
+},
+    {
+name: "Xiaomi Redmi Note 12S",
+battery: "5000 mAh",
+display: "6.43 انش AMOLED",
+processor: "MediaTek Helio G96",
+camera: "108 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "176 g",
+hidden: true
+},
+    {
+name: "Xiaomi Redmi Note 13 Pro+",
+battery: "5000 mAh",
+display: "6.67 انش AMOLED",
+processor: "Dimensity 7200 Ultra",
+camera: "200 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 13 (MIUI 14)",
+weight: "199 g",
+hidden: true
+},
+    {
+        name: "POCO F6 Pro",
+battery: "5000 mAh",
+display: "6.67 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 14 (HyperOS)",
+weight: "209 g",
+hidden: false
+},
+    {
+name: "POCO X6 Pro",
+battery: "5000 mAh",
+display: "6.67 انش AMOLED",
+processor: "Dimensity 8300 Ultra",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 14 (HyperOS)",
+weight: "186 g",
+hidden: true
+},
+    {
+name: "POCO F5",
+battery: "5000 mAh",
+display: "6.67 انش AMOLED",
+processor: "Snapdragon 7+ Gen 2",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "181 g",
+hidden: true
+},
+    {
+name: "POCO X5 Pro",
+battery: "5000 mAh",
+display: "6.67 انش AMOLED",
+processor: "Snapdragon 778G",
+camera: "108 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (MIUI 13)",
+weight: "181 g",
+hidden: false
+},
+    {
+name: "POCO M6 Pro",
+battery: "5000 mAh",
+display: "6.67 انش AMOLED",
+processor: "MediaTek Helio G99",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 13 (MIUI 14)",
+weight: "179 g",
+hidden: false
+},
+    {
+name: "POCO C65",
+battery: "5000 mAh",
+display: "6.74 انش LCD",
+processor: "MediaTek Helio G85",
+camera: "50 + 2 ميجابكسل",
+ram: "6 GB",
+storage: "128 GB",
+os: "Android 13 (MIUI 14)",
+weight: "192 g",
+hidden: true
+},
+    {
+name: "POCO F4",
+battery: "4500 mAh",
+display: "6.67 انش AMOLED",
+processor: "Snapdragon 870",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (MIUI 13)",
+weight: "195 g",
+hidden: false
+},
+    {
+name: "POCO X4 GT",
+battery: "5080 mAh",
+display: "6.6 انش LCD 144Hz",
+processor: "Dimensity 8100",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (MIUI 13)",
+weight: "200 g",
+hidden: true
+},
+    {
+name: "POCO M5",
+battery: "5000 mAh",
+display: "6.58 انش LCD",
+processor: "MediaTek Helio G99",
+camera: "50 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "64 GB",
+os: "Android 12 (MIUI 13)",
+weight: "201 g",
+hidden: true
+},
+    {
+name: "POCO F5 Pro",
+battery: "5160 mAh",
+display: "6.67 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "204 g",
+hidden: true
+},
+    {
+name: "POCO X6",
+battery: "5100 mAh",
+display: "6.67 انش AMOLED",
+processor: "Snapdragon 7s Gen 2",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "181 g",
+hidden: true
+},
+    {
+name: "POCO M5s",
+battery: "5000 mAh",
+display: "6.43 انش AMOLED",
+processor: "MediaTek Helio G95",
+camera: "64 + 8 + 2 + 2 ميجابكسل",
+ram: "6 GB",
+storage: "128 GB",
+os: "Android 12 (MIUI 13)",
+weight: "178.8 g",
+hidden: true
+},
+    {
+name: "POCO F3",
+battery: "4520 mAh",
+display: "6.67 انش AMOLED",
+processor: "Snapdragon 870",
+camera: "48 + 8 + 5 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 11 (MIUI 12)",
+weight: "196 g",
+hidden: true
+},
+    {
+name: "POCO C55",
+battery: "5000 mAh",
+display: "6.71 انش LCD",
+processor: "MediaTek Helio G85",
+camera: "50 + 2 ميجابكسل",
+ram: "6 GB",
+storage: "128 GB",
+os: "Android 12 (MIUI 13)",
+weight: "193.5 g",
+hidden: true
+},
+    {
+name: "POCO X3 Pro",
+battery: "5160 mAh",
+display: "6.67 انش LCD 120Hz",
+processor: "Snapdragon 860",
+camera: "48 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 11 (MIUI 12)",
+weight: "215 g",
+hidden: true
+},
+    {
+        name: "OPPO Find X7 Ultra",
+battery: "5000 mAh",
+display: "6.82 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 50 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 14 (ColorOS 14)",
+weight: "221 g",
+hidden: false
+},
+    {
+name: "OPPO Reno 12 Pro",
+battery: "5000 mAh",
+display: "6.7 انش AMOLED",
+processor: "Dimensity 9200",
+camera: "50 + 50 + 8 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 14 (ColorOS 14)",
+weight: "183 g",
+hidden: false
+},
+    {
+name: "OPPO Find N3 Flip",
+battery: "4300 mAh",
+display: "6.8 انش AMOLED (قابل للطي)",
+processor: "Dimensity 9200",
+camera: "50 + 48 + 32 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "198 g",
+hidden: true
+},
+    {
+name: "OPPO Reno 11",
+battery: "4800 mAh",
+display: "6.7 انش AMOLED",
+processor: "Dimensity 7050",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "182 g",
+hidden: true
+},
+    {
+name: "OPPO A78",
+battery: "5000 mAh",
+display: "6.56 انش LCD",
+processor: "Snapdragon 680",
+camera: "50 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (ColorOS 12)",
+weight: "188 g",
+hidden: true
+},
+    {
+name: "OPPO Find X6 Pro",
+battery: "5000 mAh",
+display: "6.82 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "216 g",
+hidden: true
+},
+    {
+name: "OPPO Reno 10 Pro+",
+battery: "4700 mAh",
+display: "6.74 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "50 + 64 + 8 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "194 g",
+hidden: true
+},
+    {
+name: "OPPO A38",
+battery: "5000 mAh",
+display: "6.56 انش LCD",
+processor: "MediaTek Helio G85",
+camera: "50 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "128 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "190 g",
+hidden: true
+},
+    {
+name: "OPPO Reno 8",
+battery: "4500 mAh",
+display: "6.43 انش AMOLED",
+processor: "Dimensity 1300",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (ColorOS 12)",
+weight: "179 g",
+hidden: true
+},
+    {
+name: "OPPO Find X5 Pro",
+battery: "5000 mAh",
+display: "6.7 انش AMOLED",
+processor: "Snapdragon 8 Gen 1",
+camera: "50 + 50 + 13 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 12 (ColorOS 12)",
+weight: "218 g",
+hidden: true
+},
+    {
+name: "OPPO Reno 11 F",
+battery: "5000 mAh",
+display: "6.7 انش AMOLED",
+processor: "Dimensity 7050",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 14 (ColorOS 14)",
+weight: "177 g",
+hidden: true
+},
+    {
+name: "OPPO A18",
+battery: "5000 mAh",
+display: "6.56 انش LCD",
+processor: "MediaTek Helio G85",
+camera: "8 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "128 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "188 g",
+hidden: true
+},
+    {
+name: "OPPO Reno 9 Pro+",
+battery: "4700 mAh",
+display: "6.7 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "192 g",
+hidden: true
+},
+    {
+name: "OPPO A58",
+battery: "5000 mAh",
+display: "6.72 انش LCD",
+processor: "Dimensity 700",
+camera: "50 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (ColorOS 12)",
+weight: "188 g",
+hidden: true
+},
+    {
+name: "OPPO Find N2 Flip",
+battery: "4300 mAh",
+display: "6.8 انش AMOLED",
+processor: "Dimensity 9000+",
+camera: "50 + 8 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "191 g",
+hidden: true
+},
+    {
+        name: "OnePlus 12",
+battery: "5400 mAh",
+display: "6.82 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 48 + 64 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 14 (OxygenOS 14)",
+weight: "220 g",
+hidden: false
+},
+    {
+name: "OnePlus 12R",
+battery: "5500 mAh",
+display: "6.78 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "256 GB",
+os: "Android 14 (OxygenOS 14)",
+weight: "207 g",
+hidden: false
+},
+    {
+name: "OnePlus Open",
+battery: "4805 mAh",
+display: "7.82 انش AMOLED (قابل للطي)",
+processor: "Snapdragon 8 Gen 2",
+camera: "48 + 48 + 64 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (OxygenOS 13)",
+weight: "239 g",
+hidden: true
+},
+    {
+name: "OnePlus 11",
+battery: "5000 mAh",
+display: "6.7 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 48 + 32 ميجابكسل",
+ram: "16 GB",
+storage: "256 GB",
+os: "Android 13 (OxygenOS 13)",
+weight: "205 g",
+hidden: true
+},
+    {
+name: "OnePlus Nord 3",
+battery: "5000 mAh",
+display: "6.74 انش AMOLED",
+processor: "Dimensity 9000",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "256 GB",
+os: "Android 13 (OxygenOS 13)",
+weight: "193.5 g",
+hidden: true
+},
+    {
+name: "OnePlus 10 Pro",
+battery: "5000 mAh",
+display: "6.7 انش AMOLED",
+processor: "Snapdragon 8 Gen 1",
+camera: "48 + 50 + 8 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 12 (OxygenOS 12)",
+weight: "200.5 g",
+hidden: true
+},
+    {
+name: "OnePlus Nord CE 4",
+battery: "5500 mAh",
+display: "6.7 انش AMOLED",
+processor: "Snapdragon 7 Gen 3",
+camera: "50 + 8 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 14 (OxygenOS 14)",
+weight: "186 g",
+hidden: true
+},
+    {
+name: "OnePlus 10T",
+battery: "4800 mAh",
+display: "6.7 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "256 GB",
+os: "Android 12 (OxygenOS 12)",
+weight: "203.5 g",
+hidden: true
+},
+    {
+name: "OnePlus Nord 2T",
+battery: "4500 mAh",
+display: "6.43 انش AMOLED",
+processor: "Dimensity 1300",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 12 (OxygenOS 12)",
+weight: "190 g",
+hidden: true
+},
+    {
+name: "OnePlus 9 Pro",
+battery: "4500 mAh",
+display: "6.7 انش AMOLED",
+processor: "Snapdragon 888",
+camera: "48 + 50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 11 (OxygenOS 11)",
+weight: "197 g",
+hidden: true
+},
+    {
+name: "OnePlus Nord N30",
+battery: "5000 mAh",
+display: "6.72 انش LCD",
+processor: "Snapdragon 695",
+camera: "108 + 2 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "128 GB",
+os: "Android 13 (OxygenOS 13)",
+weight: "195 g",
+hidden: true
+},
+    {
+name: "OnePlus 10R",
+battery: "5000 mAh",
+display: "6.7 انش AMOLED",
+processor: "Dimensity 8100 Max",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 12 (OxygenOS 12)",
+weight: "183 g",
+hidden: true
+},
+    {
+name: "OnePlus Nord CE 3",
+battery: "5000 mAh",
+display: "6.7 انش AMOLED",
+processor: "Snapdragon 782G",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 13 (OxygenOS 13)",
+weight: "170 g",
+hidden: false
+},
+    {
+name: "OnePlus 9",
+battery: "4500 mAh",
+display: "6.55 انش AMOLED",
+processor: "Snapdragon 888",
+camera: "48 + 50 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 11 (OxygenOS 11)",
+weight: "192 g",
+hidden: true
+},
+    {
+name: "OnePlus Nord N200",
+battery: "5000 mAh",
+display: "6.49 انش LCD",
+processor: "Snapdragon 480",
+camera: "13 + 2 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "64 GB",
+os: "Android 11 (OxygenOS 11)",
+weight: "189 g",
+hidden: false
+},
+    {
+name: "Red Magic 9 Pro",
+battery: "6500 mAh",
+display: "6.8 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 14 (RedMagic OS 9)",
+weight: "229 g",
+hidden: false
+},
+    {
+name: "Red Magic 8 Pro",
+battery: "6000 mAh",
+display: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (RedMagic OS 8)",
+weight: "228 g",
+hidden: false
+},
+    {
+name: "Red Magic 9S Pro",
+battery: "6500 mAh",
+display: "6.8 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3 Leading",
+camera: "50 + 50 ميجابكسل",
+ram: "24 GB",
+storage: "1 TB",
+os: "Android 14 (RedMagic OS 9.5)",
+weight: "229 g",
+hidden: true
+},
+    {
+name: "Red Magic 7 Pro",
+battery: "5000 mAh",
+display: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "256 GB",
+os: "Android 12 (RedMagic OS 5)",
+weight: "215 g",
+hidden: true
+},
+    {
+name: "Red Magic 8S Pro",
+battery: "6000 mAh",
+display: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (RedMagic OS 8)",
+weight: "228 g",
+hidden: true
+},
+    {
+name: "Red Magic 6 Pro",
+battery: "5050 mAh",
+display: "6.8 انش AMOLED 165Hz",
+processor: "Snapdragon 888",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 11 (RedMagic OS 4)",
+weight: "220 g",
+hidden: true
+},
+    {
+name: "Red Magic 7",
+battery: "4500 mAh",
+display: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 12 (RedMagic OS 5)",
+weight: "215 g",
+hidden: true
+},
+    {
+name: "Red Magic 8 Pro+",
+battery: "5000 mAh",
+display: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (RedMagic OS 8)",
+weight: "230 g",
+hidden: true
+},
+    {
+name: "Red Magic 6S Pro",
+battery: "5050 mAh",
+display: "6.8 انش AMOLED",
+processor: "Snapdragon 888+",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 11 (RedMagic OS 4)",
+weight: "215 g",
+hidden: true
+},
+    {
+name: "Red Magic 9 Pro+",
+battery: "5500 mAh",
+display: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 50 ميجابكسل",
+ram: "24 GB",
+storage: "1 TB",
+os: "Android 14 (RedMagic OS 9)",
+weight: "230 g",
+hidden: true
+},
+    {
+name: "Red Magic 7S Pro",
+battery: "5000 mAh",
+display: "6.8 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "18 GB",
+storage: "512 GB",
+os: "Android 12 (RedMagic OS 5)",
+weight: "215 g",
+hidden: true
+},
+    {
+name: "Red Magic 6",
+battery: "5050 mAh",
+display: "6.8 انش AMOLED",
+processor: "Snapdragon 888",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 11 (RedMagic OS 4)",
+weight: "220 g",
+hidden: true
+},
+    {
+name: "Red Magic 5G",
+battery: "4500 mAh",
+display: "6.65 انش AMOLED",
+processor: "Snapdragon 865",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "128 GB",
+os: "Android 10 (RedMagic OS 3)",
+weight: "218 g",
+hidden: true
+},
+    {
+name: "Red Magic 7S",
+battery: "4500 mAh",
+display: "6.8 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 12 (RedMagic OS 5)",
+weight: "215 g",
+hidden: true
+},
+    {
+name: "Red Magic 3S",
+battery: "5000 mAh",
+display: "6.65 انش AMOLED",
+processor: "Snapdragon 855+",
+camera: "48 ميجابكسل",
+ram: "8 GB",
+storage: "128 GB",
+os: "Android 9 (RedMagic OS 2)",
+weight: "215 g",
+hidden: true
+},
+    {
+name: "Red Magic 11 Air",
+battery: "7000 mAh",
+display: "6.85 انش AMOLED 144Hz 1.5K",
+processor: "Snapdragon 8 Elite (3nm)",
+camera: "50 + 50 ميجابكسل",
+ram: "12/16 GB",
+storage: "256/512 GB",
+os: "Android 16 (RedMagic OS 11)",
+weight: "207 g",
+hidden: false
+},
+    {
+name: "Red Magic 11 Pro+ Golden Saga",
+battery: "6500 mAh",
+display: "6.85 انش AMOLED 144Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 ميجابكسل",
+ram: "24 GB",
+storage: "1 TB",
+os: "Android 16 (RedMagic OS 11)",
+weight: "229 g",
+hidden: true
+},
+    {
+name: "Red Magic 11 Pro",
+battery: "6500 mAh",
+display: "6.85 انش AMOLED 144Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 ميجابكسل",
+ram: "16/24 GB",
+storage: "512 GB/1 TB",
+os: "Android 16 (RedMagic OS 11)",
+weight: "228 g",
+hidden: true
+},
+    {
+name: "Red Magic Gaming Tablet 3 Pro",
+battery: "10000 mAh",
+display: "10.9 انش AMOLED 144Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (RedMagic OS 11)",
+weight: "530 g",
+hidden: true
+},
+    {
+name: "Red Magic 11S Pro",
+battery: "6800 mAh",
+display: "6.85 انش AMOLED 144Hz",
+processor: "Snapdragon 8+ Elite",
+camera: "50 + 50 ميجابكسل",
+ram: "18 GB",
+storage: "512 GB",
+os: "Android 16 (RedMagic OS 11.5)",
+weight: "225 g",
+hidden: true
+},
+    {  
+        name: "OPPO Find X9 Ultra",
+battery: "7000 mAh",
+display: "6.82 انش AMOLED 120Hz 2K",
+processor: "Snapdragon 8 Elite Gen 5 (3nm)",
+camera: "200 + 200 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB/1 TB",
+os: "Android 16 (ColorOS 16)",
+weight: "218 g",
+hidden: false
+},
+    {  
+name: "OPPO Find X9 Pro",
+battery: "6000 mAh",
+display: "6.8 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (ColorOS 16)",
+weight: "205 g",
+hidden: true
+},
+    {  
+name: "OPPO Find X9",
+battery: "5800 mAh",
+display: "6.7 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 + 8 ميجابكسل",
+ram: "12 GB",
+storage: "256/512 GB",
+os: "Android 16 (ColorOS 16)",
+weight: "195 g",
+hidden: false
+},
+    {  
+name: "OPPO Reno 14 Pro+",
+battery: "5500 mAh",
+display: "6.74 انش AMOLED 120Hz",
+processor: "Dimensity 9400",
+camera: "50 + 50 + 50 ميجابكسل",
+ram: "12/16 GB",
+storage: "256/512 GB",
+os: "Android 16 (ColorOS 16)",
+weight: "185 g",
+hidden: true
+},
+    {  
+name: "OPPO Find N5",
+battery: "5600 mAh",
+display: "7.1 انش AMOLED (قابل للطي) 120Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 48 + 32 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (ColorOS 16)",
+weight: "239 g",
+hidden: false
+},
+    {
+name: "OnePlus Nord 6",
+battery: "9000 mAh",
+display: "6.78 انش AMOLED 165Hz 1.5K",
+processor: "Snapdragon 8s Gen 4 (3nm)",
+camera: "50 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 16 (OxygenOS 16)",
+weight: "195 g",
+hidden: false
+},
+    {
+name: "OnePlus 15",
+battery: "6500 mAh",
+display: "6.82 انش AMOLED 120Hz 2K",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (OxygenOS 16)",
+weight: "215 g",
+hidden: true
+},
+    {
+name: "OnePlus 15R",
+battery: "6000 mAh",
+display: "6.74 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12/16 GB",
+storage: "256/512 GB",
+os: "Android 16 (OxygenOS 16)",
+weight: "205 g",
+hidden: false
+},
+    {
+name: "OnePlus Open 2",
+battery: "6000 mAh",
+display: "7.82 انش AMOLED (قابل للطي) 120Hz",
+processor: "Snapdragon 8 Elite",
+camera: "48 + 48 + 64 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (OxygenOS 16)",
+weight: "235 g",
+hidden: true
+},
+    {
+name: "OnePlus Ace 5 Pro",
+battery: "6100 mAh",
+display: "6.78 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 + 2 ميجابكسل",
+ram: "16/24 GB",
+storage: "512 GB/1 TB",
+os: "Android 16 (ColorOS 16)",
+weight: "210 g",
+hidden: false
+},
+    {
+name: "POCO X8 Pro Max",
+battery: "9000 mAh",
+display: "6.83 انش AMOLED 120Hz 1.5K",
+processor: "MediaTek Dimensity 9500s (3nm)",
+camera: "50 + 8 ميجابكسل",
+ram: "12/16 GB",
+storage: "256/512 GB",
+os: "Android 16 (HyperOS 3)",
+weight: "205 g",
+hidden: false
+},
+    {
+name: "POCO X8 Pro",
+battery: "7560 mAh",
+display: "6.59 انش OLED 120Hz 1.5K",
+processor: "MediaTek Dimensity 8500",
+camera: "50 + 8 ميجابكسل",
+ram: "8/12 GB",
+storage: "256/512 GB",
+os: "Android 16 (HyperOS 3)",
+weight: "195 g",
+hidden: true
+},
+    {
+name: "POCO F7 Ultra",
+battery: "7000 mAh",
+display: "6.67 انش AMOLED 120Hz 2K",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (HyperOS 3)",
+weight: "210 g",
+hidden: false
+},
+    {
+name: "POCO F7 Pro",
+battery: "6500 mAh",
+display: "6.67 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256/512 GB",
+os: "Android 16 (HyperOS 3)",
+weight: "200 g",
+hidden: true
+},
+    {
+name: "POCO M7 Pro 5G",
+battery: "5500 mAh",
+display: "6.67 انش AMOLED 120Hz",
+processor: "Dimensity 7300",
+camera: "50 + 8 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 16 (HyperOS 3)",
+weight: "185 g",
+hidden: false
+},
+    {
+name: "Xiaomi Redmi Note 14 Pro+ 5G",
+battery: "5110 mAh",
+display: "6.67 انش AMOLED 120Hz 1.5K",
+processor: "Snapdragon 7s Gen 3 (4nm)",
+camera: "200 + 8 + 2 ميجابكسل",
+ram: "8/12 جيجابايت",
+storage: "256/512 جيجابايت",
+os: "Android 14 (HyperOS)",
+weight: "205 g",
+hidden: true
+},
+    {
+name: "Xiaomi Redmi Note 14 Pro 4G",
+battery: "5500 mAh",
+display: "6.67 انش AMOLED 120Hz",
+processor: "MediaTek Helio G100-Ultra (6nm)",
+camera: "200 + 8 + 2 ميجابكسل",
+ram: "8/12 جيجابايت",
+storage: "256/512 جيجابايت",
+os: "Android 14 (HyperOS)",
+weight: "196 g",
+hidden: true
+},
+    {
+name: "Xiaomi Redmi Note 14 4G",
+battery: "5500 mAh",
+display: "6.67 انش AMOLED 120Hz",
+processor: "MediaTek Helio G99 Ultra (6nm)",
+camera: "108 + 2 + 2 ميجابكسل",
+ram: "6/8 جيجابايت",
+storage: "128/256 جيجابايت",
+os: "Android 14 (HyperOS)",
+weight: "196.5 g",
+hidden: true
+}
+];
+    
+
+        // دالة عرض الهواتف
+        function displayPhones(phonesToShow, searching = false) {
+            const tbody = document.getElementById('phoneTableBody');
+            tbody.innerHTML = '';
+
+            phonesToShow.forEach(phone => {
+                // الشرط المهم: إذا كنا في حالة البحث (searching = true) نظهر الكل
+                // إذا كنا في حالة عرض عادية (searching = false) نخفي اللي hidden = true
+                if (!searching && phone.hidden) {
+                    return; // ما نضيف هذا الهاتف للجدول
+                }
+
+                const row = document.createElement('tr');
+                row.className = 'phone-row';
+                row.setAttribute('data-name', phone.name);
+                row.onclick = function() { showPhoneDetails(phone); };
+
+                row.innerHTML = `
+                    <td><i class="fas fa-mobile-alt" style="margin-left: 10px; color: #4facfe;"></i> ${phone.name}</td>
+                    <td>🔋 ${phone.battery}</td>
+                    <td>📱 ${phone.display}</td>
+                    <td>⚡ ${phone.processor}</td>
+                    <td>📷 ${phone.camera}</td>
+                    <td>💾 ${phone.ram}</td>
+                `;
+
+                tbody.appendChild(row);
+            });
+
+            // إذا ما في نتائج
+            if (tbody.children.length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = '<td colspan="6" style="text-align: center; padding: 30px;">لا توجد نتائج للبحث</td>';
+                tbody.appendChild(row);
+            }
+        }
+
+        // دالة البحث
+        function searchPhones() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                alert('يرجى إدخال اسم الهاتف للبحث عنه');
+                return;
+            }
+            
+            // فلترة الهواتف التي تطابق البحث (بغض النظر عن hidden)
+            const filteredPhones = phones.filter(phone => 
+                phone.name.toLowerCase().includes(searchTerm)
+            );
+            
+            if (filteredPhones.length === 0) {
+                alert('لم يتم العثور على هواتف تطابق بحثك');
+                displayPhones(phones, false); // عرض الهواتف العادية
+            } else {
+                displayPhones(filteredPhones, true); // true = نحن في حالة بحث
+            }
+        }
+
+        // إعادة تعيين البحث
+        function resetSearch() {
+            document.getElementById('searchInput').value = '';
+            displayPhones(phones, false); // false = عرض عادي (نخفي اللي hidden = true)
+        }
+
+        // عرض تفاصيل الهاتف
+        function showPhoneDetails(phone) {
+            document.getElementById('detailPhoneName').textContent = phone.name;
+            document.getElementById('detailBattery').textContent = phone.battery;
+            document.getElementById('detailDisplay').textContent = phone.display;
+            document.getElementById('detailProcessor').textContent = phone.processor;
+            document.getElementById('detailCamera').textContent = phone.camera;
+            document.getElementById('detailRAM').textContent = phone.ram;
+            document.getElementById('detailStorage').textContent = phone.storage;
+            document.getElementById('detailOS').textContent = phone.os;
+            document.getElementById('detailWeight').textContent = phone.weight;
+            
+            document.getElementById('details').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // تشغيل عند تحميل الصفحة
+        window.onload = function() {
+            displayPhones(phones, false); // false = نخفي اللي hidden = true
+            
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchPhones();
+                }
+            });
+        };
+    </script>
+</body>
+</html>

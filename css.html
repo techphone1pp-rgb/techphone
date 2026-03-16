@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تيك فون - مقارنة الهواتف</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto; 
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 20px 40px;
+        }
+
+        h1 {
+            color: white;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInDown 1s ease;
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        /* Selection Area */
+        .selection-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .phone-select {
+            flex: 1;
+            max-width: 400px;
+            min-width: 280px;
+        }
+
+        .select-label {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .select-wrapper i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667eea;
+            pointer-events: none;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            appearance: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        select:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .vs-circle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        .compare-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: block;
+            margin: 0 auto 50px;
+        }
+
+        .compare-btn:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Comparison Table */
+        .comparison-container {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin-top: 50px;
+            display: block; /* Changed from none to block */
+        }
+
+        .comparison-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .comparison-header h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table tr {
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .comparison-table td {
+            padding: 20px 30px;
+            font-size: 18px;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #667eea;
+            width: 200px;
+            background: #f8f9fa;
+        }
+
+        .comparison-table td:not(:first-child) {
+            text-align: center;
+            width: 250px;
+        }
+
+        .phone-name-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-size: 20px;
+        }
+
+        .winner-badge {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .spec-icon {
+            font-size: 20px;
+            margin-right: 10px;
+            width: 30px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* Initial message */
+        .initial-message {
+            text-align: center;
+            padding: 60px;
+            color: #666;
+        }
+
+        .initial-message i {
+            font-size: 64px;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .initial-message p {
+            font-size: 18px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="css.html" class="logo">
+                <i class="fas fa-mobile-alt"></i>
+                TechPhone
+            </a>
+            <div class="nav-links">
+                <a href="deepseek.html">الرئيسية</a>
+                <a href="css.html" class="active">المقارنة</a>
+                <a href="phones.html" class="active">الهواتف</a>
+                <a href="contact us.html">اتصل بنا</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>مقارنة الهواتف</h1>
+        <p class="subtitle">اختر هاتفين للمقارنة بينهما واكتشف أيهما الأنسب لك</p>
+
+        <!-- Selection Area -->
+        <div class="selection-area">
+            <div class="phone-select">
+                <label class="select-label">الهاتف الأول</label>
+                <div class="select-wrapper">
+                    <i class="fas fa-chevron-down"></i>
+                    <select id="phone1" onchange="checkAndCompare()">
+                        <option value="">-- اختر هاتف --</option>
+                        <option value="iphone15">iPhone 15</option>
+                        <option value="iPhone15plus">iPhone 15 plus</option>
+                        <option value="iphone15Pro">iphone 15 Pro</option>
+                        <option value="iphone15promax">iphone 15 pro max</option>
+                        <option value="iphone17">iphone 17</option>
+                        <option value="iphone17air">iphone 17 air</option>
+                        <option value="iphone17pro">iphone 17 pro</option>
+                        <option value="iphone17promax">iphone 17 pro max</option>
+                        <option value="iphone16">iphone 16</option>
+                        <option value="iphone16pro">iphone 16 pro </option>
+                        <option value="iphone16plus">iphone 16 plus</option>
+                        <option value="iphone16promax">iphone 16 pro max</option>
+                        <option value="SamsungGalaxyS22">Samsung Galaxy S22</option>
+                        <option value="SamsungGalaxyS22plus">Samsung Galaxy S22plus</option>
+                        <option value="SamsungGalaxyS24Ultra">Samsung Galaxy S24 Ultra</option>
+                        <option value="SamsungGalaxyS23">Samsung Galaxy S23</option>
+                        <option value="SamsungGalaxyS23plus">Samsung Galaxy S23plus</option>
+                        <option value="SamsungGalaxyS23Ultra">Samsung Galaxy S23 Ultra</option>
+                        <option value="SamsungGalaxyS24">Samsung Galaxy S24</option>
+                        <option value="SamsungGalaxyS24plus">Samsung Galaxy S24plus</option>
+                        <option value="SamsungGalaxyS24FE">Samsung Galaxy S24 FE</option>
+                        <option value="SamsungGalaxyS24Utra">Samsung Galaxy S24 Ultra</option>
+                        <option value="SamsungGalaxyS25">Samsung Galaxy S25</option>
+                        <option value="SamsungGalaxyS25+">Samsung Galaxy S25+</option>
+                        <option value="SamsungGalaxyS25Utra">Samsung Galaxy S25 Ultra</option>
+                        <option value="SaamsungGalaxyS25edge">Samsung Galaxy S25 edge</option>
+                        <option value="SamsungGalaxyS26">Samsung Galaxy S26</option>
+                        <option value="SamsungGalaxyS26plus">Samsung Galaxy S26plus</option>
+                        <option value="SamsungGalaxyS26ultra">Samsung Galaxy S26 ultra</option>
+                        <option value="redminot14proplus5G">redmi not 14 pro plus 5G</option>
+                        <option value="redminot14pro4G">redmi not 14 pro 4G</option>
+                        <option value="redminot13pro">redmi not 13 pro</option>
+                        <option value="redminot144G">redmi not 14 4G</option>
+                        <option value="redmiK70pro">redmi K70 pro</option>
+                        <option value="redmi13C">redmi 13C</option>
+                        <option value="redminot12">redmi not 12</option>
+                        <option value="redmiK60">redmi K60</option>
+                        <option value="redmiA3">redmi A3</option>
+                        <option value="redminot135G">redmi not 13 5G</option>
+                        <option value="redmi12">redmi 12</option>
+                        <option value="redmiK70E">redmi K70E</option>
+                        <option value="redminot11pro">redmi not 11 pro</option>
+                        <option value="redmi102022">redmi 10 2022</option>
+                        <option value="redminot12S">redmi not 12 S</option>
+                        <option value="redminot13proplus">redmi not 13 pro plus</option>
+                        <option value="pocoF6pro">poco F6 pro</option>
+                        <option value="pocoX6pro">poco X6 pro</option>
+                        <option value="pocoF5">poco F5</option>
+                        <option value="pocoX5pro">poco X5 pro</option>
+                        <option value="pocoM6pro">poco M6 pro</option>
+                        <option value="pocoC65">poco C65</option>
+                        <option value="pocoF4">poco F4</option>
+                        <option value="pocoX4GT">poco X4 GT</option>
+                        <option value="pocoM5">poco M5</option>
+                        <option value="pocoF5pro">poco F5 pro</option>
+                        <option value="pocoX6">poco X6</option>
+                        <option value="pocoM5S">poco M5 S</option>
+                        <option value="pocoF3">poco F3</option>
+                        <option value="pocoC55">poco C55</option>
+                        <option value="pocoX3pro">poco X3 pro</option>
+                        <option value="oppofindX7ultra">oppo find X7 ultra</option>
+                        <option value="oppofreno12pro">oppo reno12 pro</option>
+                        <option value="oppofindN3flip">oppo find N3 flip</option>
+                        <option value="opporeno11">oppo reno11</option>
+                        <option value="oppoA73">oppo A73</option>
+                        <option value="oppofindX6pro">oppo find X6 pro</option>
+                        <option value="oppofindX7ultra">oppo find X7 ultra</option>
+                        <option value="opporeno10proplus">oppo reno10 pro plus</option>
+                        <option value="oppoA38">oppo A38</option>
+                        <option value="opporeno8">oppo reno8</option>
+                        <option value="oppofindX5pro">oppo find X5 pro</option>
+                        <option value="opporeno11F">oppo reno11 F</option>
+                        <option value="oppoA18">oppo A18</option>
+                        <option value="opporeno9proplus">oppo reno9 pro plus</option>
+                        <option value="oppoA58">oppo A58</option>
+                        <option value="oppofindN2flip">oppo find N2 flip</option>
+                        <option value="oneplus12">oneplus 12</option>
+                        <option value="oneplus12R">oneplus 12R</option>
+                        <option value="oneplus12open">oneplus open</option>
+                        <option value="oneplus11">oneplus 11</option>
+                        <option value="oneplusnord3">oneplus nord 3</option>
+                        <option value="oneplus10pro">oneplus 10 Pro</option>
+                        <option value="oneplusnordCE4">oneplus nord CE 4</option>
+                        <option value="oneplus10T">oneplus 10T</option>
+                        <option value="oneplusnord2T">oneplus nord 2T</option>
+                        <option value="oneplus9pro">oneplus 9 Pro</option>
+                        <option value="oneplusNordN30">oneplus Nord N30</option>
+                        <option value="oneplus10R">oneplus 10R</option>
+                        <option value="oneplusnordCE3">oneplus nord CE 3</option>
+                        <option value="oneplus9">oneplus 9</option>
+                        <option value="oneplusnordN200">oneplus nord N200</option>
+                        <option value="redmagic9pro">redmagic 9 Pro</option>
+                        <option value="redmagic8pro">redmagic 8 Pro</option>
+                        <option value="redmagic9Spro">redmagic 9S Pro</option>
+                        <option value="redmagic7pro">redmagic 7 Pro</option>
+                        <option value="redmagic8Spro">redmagic 8S Pro</option>
+                        <option value="redmagic6pro">redmagic 6 Pro</option>
+                        <option value="redmagic7">redmagic 7</option>
+                        <option value="redmagic8proplus">redmagic 8 Pro Plus</option>
+                        <option value="redmagic6Spro">redmagic 6S Pro</option>
+                        <option value="redmagic9proplus">redmagic 9 Pro Plus</option>
+                        <option value="redmagic7Spro">redmagic 7S Pro</option>
+                        <option value="redmagic6">redmagic 6</option>
+                        <option value="redmagic5G">redmagic 5G</option>
+                        <option value="redmagic7S">redmagic 7S</option>
+                        <option value="redmagic3S">redmagic 3S</option>
+                        <option value="redmagic11proplusgoldensaga">redmagic 11 Pro plus golden saga</option>
+                        <option value="redmagicgamingtablet3pro">redmagic gaming tablet 3 Pro</option>
+                        <option value="redmagic11pro">redmagic 11 Pro</option>
+                        <option value="redmagic11Spro">redmagic 11S Pro</option>
+                        <option value="oppofindX9ultra">oppo find X9 ultra</option>
+                        <option value="oppofindX9pro">oppo find X9 pro</option>
+                        <option value="opporeno14proplus">oppo reno 14 Pro Plus</option>
+                        <option value="oppofindN5">oppo find N5</option>
+                        <option value="oneplusnord6">oneplus nord 6</option>
+                        <option value="oneplus15">oneplus 15</option>
+                        <option value="oneplus15R">oneplus 15R</option>
+                        <option value="oneplusopen2">oneplus open 2</option>
+                        <option value="oneplusace5pro">oneplus ace 5 Pro</option>
+                        <option value="pocoX8promax">poco X8 Pro Max</option>
+                        <option value="pocoX8pro">poco X8 Pro</option>
+                        <option value="pocoC7ultra">poco C7 Ultra</option>
+                        <option value="pocoF7pro">poco F7 Pro</option>
+                        <option value="pocoM7pro5G">poco M7 Pro 5G</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="vs-circle">VS</div>
+
+            <div class="phone-select">
+                <label class="select-label">الهاتف الثاني</label>
+                <div class="select-wrapper">
+                    <i class="fas fa-chevron-down"></i>
+                    <select id="phone2" onchange="checkAndCompare()">
+                        <option value="">-- اختر هاتف --</option>
+                        <option value="iphone15">iPhone 15</option>
+                        <option value="iPhone15plus">iPhone 15 plus</option>
+                        <option value="iphone15Pro">iphone 15 Pro</option>
+                        <option value="iphone15promax">iphone 15 pro max</option>
+                        <option value="iphone17">iphone 17</option>
+                        <option value="iphone17air">iphone 17 air</option>
+                        <option value="iphone17pro">iphone 17 pro</option>
+                        <option value="iphone17promax">iphone 17 pro max</option>
+                        <option value="iphone16">iphone 16</option>
+                        <option value="iphone16pro">iphone 16 pro </option>
+                        <option value="iphone16plus">iphone 16 plus</option>
+                        <option value="iphone16promax">iphone 16 pro max</option>
+                        <option value="SamsungGalaxyS22">Samsung Galaxy S22</option>
+                        <option value="SamsungGalaxyS22plus">Samsung Galaxy S22plus</option>
+                        <option value="SamsungGalaxyS24Ultra">Samsung Galaxy S24 Ultra</option>
+                        <option value="SamsungGalaxyS23">Samsung Galaxy S23</option>
+                        <option value="SamsungGalaxyS23plus">Samsung Galaxy S23plus</option>
+                        <option value="SamsungGalaxyS23Ultra">Samsung Galaxy S23 Ultra</option>
+                        <option value="SamsungGalaxyS24">Samsung Galaxy S24</option>
+                        <option value="SamsungGalaxyS24plus">Samsung Galaxy S24plus</option>
+                        <option value="SamsungGalaxyS24FE">Samsung Galaxy S24 FE</option>
+                        <option value="SamsungGalaxyS24Utra">Samsung Galaxy S24 Ultra</option>
+                        <option value="SamsungGalaxyS25">Samsung Galaxy S25</option>
+                        <option value="SamsungGalaxyS25+">Samsung Galaxy S25+</option>
+                        <option value="SamsungGalaxyS25Utra">Samsung Galaxy S25 Ultra</option>
+                        <option value="SaamsungGalaxyS25edge">Samsung Galaxy S25 edge</option>
+                        <option value="SamsungGalaxyS26">Samsung Galaxy S26</option>
+                        <option value="SamsungGalaxyS26plus">Samsung Galaxy S26plus</option>
+                        <option value="SamsungGalaxyS26ultra">Samsung Galaxy S26 ultra</option>
+                        <option value="redminot14proplus5G">redmi not 14 pro plus 5G</option>
+                        <option value="redminot14pro4G">redmi not 14 pro 4G</option>
+                        <option value="redminot13pro">redmi not 13 pro</option>
+                        <option value="redminot144G">redmi not 14 4G</option>
+                        <option value="redmiK70pro">redmi K70 pro</option>
+                        <option value="redmi13C">redmi 13C</option>
+                        <option value="redminot12">redmi not 12</option>
+                        <option value="redmiK60">redmi K60</option>
+                        <option value="redmiA3">redmi A3</option>
+                        <option value="redminot135G">redmi not 13 5G</option>
+                        <option value="redmi12">redmi 12</option>
+                        <option value="redmiK70E">redmi K70E</option>
+                        <option value="redminot11pro">redmi not 11 pro</option>
+                        <option value="redmi102022">redmi 10 2022</option>
+                        <option value="redminot12S">redmi not 12 S</option>
+                        <option value="redminot13proplus">redmi not 13 pro plus</option>
+                        <option value="pocoF6pro">poco F6 pro</option>
+                        <option value="pocoX6pro">poco X6 pro</option>
+                        <option value="pocoF5">poco F5</option>
+                        <option value="pocoX5pro">poco X5 pro</option>
+                        <option value="pocoM6pro">poco M6 pro</option>
+                        <option value="pocoC65">poco C65</option>
+                        <option value="pocoF4">poco F4</option>
+                        <option value="pocoX4GT">poco X4 GT</option>
+                        <option value="pocoM5">poco M5</option>
+                        <option value="pocoF5pro">poco F5 pro</option>
+                        <option value="pocoX6">poco X6</option>
+                        <option value="pocoM5S">poco M5 S</option>
+                        <option value="pocoF3">poco F3</option>
+                        <option value="pocoC55">poco C55</option>
+                        <option value="pocoX3pro">poco X3 pro</option>
+                        <option value="oppofindX7ultra">oppo find X7 ultra</option>
+                        <option value="oppofreno12pro">oppo reno12 pro</option>
+                        <option value="oppofindN3flip">oppo find N3 flip</option>
+                        <option value="opporeno11">oppo reno11</option>
+                        <option value="oppoA73">oppo A73</option>
+                        <option value="oppofindX6pro">oppo find X6 pro</option>
+                        <option value="oppofindX7ultra">oppo find X7 ultra</option>
+                        <option value="opporeno10proplus">oppo reno10 pro plus</option>
+                        <option value="oppoA38">oppo A38</option>
+                        <option value="opporeno8">oppo reno8</option>
+                        <option value="oppofindX5pro">oppo find X5 pro</option>
+                        <option value="opporeno11F">oppo reno11 F</option>
+                        <option value="oppoA18">oppo A18</option>
+                        <option value="opporeno9proplus">oppo reno9 pro plus</option>
+                        <option value="oppoA58">oppo A58</option>
+                        <option value="oppofindN2flip">oppo find N2 flip</option>
+                        <option value="oneplus12">oneplus 12</option>
+                        <option value="oneplus12R">oneplus 12R</option>
+                        <option value="oneplus12open">oneplus open</option>
+                        <option value="oneplus11">oneplus 11</option>
+                        <option value="oneplusnord3">oneplus nord 3</option>
+                        <option value="oneplus10pro">oneplus 10 Pro</option>
+                        <option value="oneplusnordCE4">oneplus nord CE 4</option>
+                        <option value="oneplus10T">oneplus 10T</option>
+                        <option value="oneplusnord2T">oneplus nord 2T</option>
+                        <option value="oneplus9pro">oneplus 9 Pro</option>
+                        <option value="oneplusNordN30">oneplus Nord N30</option>
+                        <option value="oneplus10R">oneplus 10R</option>
+                        <option value="oneplusnordCE3">oneplus nord CE 3</option>
+                        <option value="oneplus9">oneplus 9</option>
+                        <option value="oneplusnordN200">oneplus nord N200</option>
+                        <option value="redmagic9pro">redmagic 9 Pro</option>
+                        <option value="redmagic8pro">redmagic 8 Pro</option>
+                        <option value="redmagic9Spro">redmagic 9S Pro</option>
+                        <option value="redmagic7pro">redmagic 7 Pro</option>
+                        <option value="redmagic8Spro">redmagic 8S Pro</option>
+                        <option value="redmagic6pro">redmagic 6 Pro</option>
+                        <option value="redmagic7">redmagic 7</option>
+                        <option value="redmagic8proplus">redmagic 8 Pro Plus</option>
+                        <option value="redmagic6Spro">redmagic 6S Pro</option>
+                        <option value="redmagic9proplus">redmagic 9 Pro Plus</option>
+                        <option value="redmagic7Spro">redmagic 7S Pro</option>
+                        <option value="redmagic6">redmagic 6</option>
+                        <option value="redmagic5G">redmagic 5G</option>
+                        <option value="redmagic7S">redmagic 7S</option>
+                        <option value="redmagic3S">redmagic 3S</option>
+                        <option value="redmagic11proplusgoldensaga">redmagic 11 Pro plus golden saga</option>
+                        <option value="redmagicgamingtablet3pro">redmagic gaming tablet 3 Pro</option>
+                        <option value="redmagic11pro">redmagic 11 Pro</option>
+                        <option value="redmagic11Spro">redmagic 11S Pro</option>
+                        <option value="oppofindX9ultra">oppo find X9 ultra</option>
+                        <option value="oppofindX9pro">oppo find X9 pro</option>
+                        <option value="opporeno14proplus">oppo reno 14 Pro Plus</option>
+                        <option value="oppofindN5">oppo find N5</option>
+                        <option value="oneplusnord6">oneplus nord 6</option>
+                        <option value="oneplus15">oneplus 15</option>
+                        <option value="oneplus15R">oneplus 15R</option>
+                        <option value="oneplusopen2">oneplus open 2</option>
+                        <option value="oneplusace5pro">oneplus ace 5 Pro</option>
+                        <option value="pocoX8promax">poco X8 Pro Max</option>
+                        <option value="pocoX8pro">poco X8 Pro</option>
+                        <option value="pocoC7ultra">poco C7 Ultra</option>
+                        <option value="pocoF7pro">poco F7 Pro</option>
+                        <option value="pocoM7pro5G">poco M7 Pro 5G</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <button class="compare-btn" onclick="comparePhones()">
+            <i class="fas fa-balance-scale"></i> قارن الآن
+        </button>
+
+        <!-- Comparison Table -->
+        <div class="comparison-container" id="comparisonResult">
+            <div class="comparison-header">
+                <h2>نتيجة المقارنة</h2>
+                <p>قارنا بين الهاتفين بناءً على المواصفات</p>
+            </div>
+            
+            <div id="comparisonContent">
+                <!-- الرسالة الافتراضية -->
+                <div class="initial-message" id="initialMessage">
+                    <i class="fas fa-mobile-alt"></i>
+                    <p>اختر هاتفين واضغط على زر المقارنة</p>
+                </div>
+                
+                <!-- جدول المقارنة (مخفي افتراضياً) -->
+                <table class="comparison-table" id="comparisonTable" style="display: none;">
+                    <!-- يتم ملء البيانات عن طريق JavaScript -->
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // قاعدة بيانات الهواتف - تأكد من تطابق المفاتيح مع قيم الـ option
+        const phones = {
+            SamsungGalaxyS26ultra: {
+ name: "Samsung Galaxy S26 Ultra",
+ battery: "5,000 mAh",
+ screen: "6.9 إنش Dynamic AMOLED 2X QHD+",
+ processor: "Qualcomm Snapdragon 8 Elite Gen 5 for Galaxy",
+ camera: "200 + 50 + 50 + 10 ميجابكسل",
+ ram: "12/16 جيجابايت",
+  storage: "256/512/1024 جيجابايت",
+ os: "Android 16 (One UI 8.5)",
+  weight: "214 جرام"
+},
+SamsungGalaxyS26plus: {
+name: "Samsung Galaxy S26+",
+battery: "4,900 mAh",
+screen: "6.7 إنش Dynamic AMOLED 2X QHD+",
+processor: "Exynos 2600 (عالمي) / Snapdragon 8 Elite Gen 5 (للولايات المتحدة)",
+camera: "50 + 12 + 10 ميجابكسل",
+ram: "12 جيجابايت",
+storage: "256/512 جيجابايت",
+os: "Android 16 (One UI 8.5)",
+weight: "190 جرام"
+},
+
+       SamsungGalaxyS26: {
+name: "Samsung Galaxy S26",
+battery: "4,300 mAh",
+screen: "6.3 إنش Dynamic AMOLED 2X FHD+",
+processor: "Exynos 2600 (عالمي) / Snapdragon 8 Elite Gen 5 (للولايات المتحدة)",
+camera: "50 + 12 + 10 ميجابكسل",
+ram: "12 جيجابايت",
+storage: "256/512 جيجابايت",
+os: "Android 16 (One UI 8.5)",
+weight: "167 جرام"
+            },
+           SamsungGalaxyS25Ultra: {
+name: "Samsung Galaxy S25 Ultra",
+battery: "5,000 mAh",
+screen: "6.9 إنش Dynamic AMOLED 2X QHD+",
+processor: "Qualcomm Snapdragon 8 Elite for Galaxy (3 نانومتر)",
+camera: "200 + 50 + 50 + 10 ميجابكسل",
+ram: "12 جيجابايت",
+storage: "256/512/1024 جيجابايت",
+os: "Android 15 (One UI 7)",
+weight: "218 جرام"
+},
+            SamsungGalaxyS25plus: {
+name: "Samsung Galaxy S25plus",
+battery: "4,900 mAh",
+screen: "6.7 إنش Dynamic AMOLED 2X QHD+",
+processor: "Qualcomm Snapdragon 8 Elite for Galaxy (3 نانومتر)",
+camera: "50 + 12 + 10 ميجابكسل",
+ram: "12 جيجابايت",
+storage: "256/512 جيجابايت",
+os: "Android 15 (One UI 7)",
+weight: "190 جرام"
+},
+           SamsungGalaxyS25: {
+name: "Samsung Galaxy S25",
+battery: "4,000 mAh",
+screen: "6.2 إنش Dynamic AMOLED 2X FHD+",
+processor: "Qualcomm Snapdragon 8 Elite for Galaxy (3 نانومتر)",
+camera: "50 + 12 + 10 ميجابكسل",
+ram: "12 جيجابايت",
+storage: "128/256/512 جيجابايت",
+os: "Android 15 (One UI 7)",
+weight: "162 جرام"
+},
+
+            SamsungGalaxyS24Ultra: {
+name: "Samsung Galaxy S24 Ultra",
+battery: "5,000 mAh",
+screen: "6.8 إنش Dynamic LTPO AMOLED 2X",
+processor: "Snapdragon 8 Gen 3 for Galaxy",
+camera: "200 + 12 + 50 + 10 ميجابكسل",
+ram: "12 جيجابايت",
+storage: "256/512/1024 جيجابايت",
+os: "Android 14 (One UI 6.1)",
+weight: "232 جرام"
+},
+             SamsungGalaxyS24plus: {
+name: "Samsung Galaxy S24+",
+battery: "4,900 mAh",
+screen: "6.7 إنش Dynamic LTPO AMOLED 2X",
+processor: "Exynos 2400 (عالمي) / Snapdragon 8 Gen 3 (للولايات المتحدة)",
+camera: "50 + 12 + 10 ميجابكسل",
+ram: "12 جيجابايت",
+storage: "256/512 جيجابايت",
+os: "Android 14 (One UI 6.1)",
+weight: "196 جرام"
+},
+             SamsungGalaxyS24: {
+name: "Samsung Galaxy S24",
+battery: "4,000 mAh",
+screen: "6.2 إنش Dynamic LTPO AMOLED 2X",
+processor: "Exynos 2400 (عالمي) / Snapdragon 8 Gen 3 (للولايات المتحدة)",
+camera: "50 + 12 + 10 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "128/256/512 جيجابايت",
+os: "Android 14 (One UI 6.1)",
+weight: "167 جرام"
+},
+SamsungGalaxyS23Ultra: {
+name: "Samsung Galaxy S23 Ultra",
+battery: "5,000 mAh",
+screen: "6.8 إنش Dynamic AMOLED 2X",
+processor: "Snapdragon 8 Gen 2 for Galaxy",
+camera: "200 + 12 + 10 + 10 ميجابكسل",
+ram: "8/12 جيجابايت",
+storage: "256/512/1024 جيجابايت",
+os: "Android 13 (One UI 5.1)",
+weight: "229 جرام"
+},
+            SamsungGalaxyS23plus: {
+name: "Samsung Galaxy S23+",
+battery: "4,700 mAh",
+screen: "6.6 إنش Dynamic AMOLED 2X",
+processor: "Snapdragon 8 Gen 2 for Galaxy",
+camera: "50 + 12 + 10 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "256/512 جيجابايت",
+os: "Android 13 (One UI 5.1)",
+weight: "196 جرام"
+},
+SamsungGalaxyS23: {
+name: "Samsung Galaxy S23",
+battery: "3,900 mAh",
+screen: "6.1 إنش Dynamic AMOLED 2X",
+processor: "Snapdragon 8 Gen 2 for Galaxy",
+camera: "50 + 12 + 10 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "128/256/512 جيجابايت",
+os: "Android 13 (One UI 5.1)",
+weight: "168 جرام"
+},
+SamsungGalaxyS22: {
+name: "Samsung Galaxy S22",
+battery: "3,700 mAh",
+screen: "6.1 إنش Dynamic AMOLED 2X",
+processor: "Qualcomm Snapdragon 8 Gen 1",
+camera: "50 + 12 + 10 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "128/256 جيجابايت",
+os: "Android 12 (One UI 4.1)",
+weight: "167 جرام"
+},
+SamsungGalaxyS22plus: {
+name: "Samsung Galaxy S22+",
+battery: "4,500 mAh",
+screen: "6.6 إنش Dynamic AMOLED 2X",
+processor: "Qualcomm Snapdragon 8 Gen 1",
+camera: "50 + 12 + 10 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "128/256 جيجابايت",
+os: "Android 12 (One UI 4.1)",
+weight: "196 جرام (تقديري)"
+},
+SamsungGalaxyS22Ultra: {
+name: "Samsung Galaxy S22 Ultra",
+battery: "5,000 mAh",
+screen: "6.8 إنش Dynamic AMOLED 2X",
+processor: "Qualcomm Snapdragon 8 Gen 1",
+camera: "108 + 12 + 10 + 10 ميجابكسل",
+ram: "8/12 جيجابايت",
+storage: "128/256/512 جيجابايت",
+os: "Android 12 (One UI 4.1)",
+weight: "229 جرام (تقديري)"
+},
+iphone15: {
+name: "iPhone 15",
+battery: "3,349 mAh",
+screen: "6.1 إنش Super Retina XDR (OLED)",
+processor: "Apple A16 Bionic",
+camera: "48 + 12 ميجابكسل",
+ram: "6 جيجابايت",
+storage: "128/256/512 جيجابايت",
+os: "iOS 17",
+weight: "171 جرام"
+},
+iPhone15plus: {
+name: "iPhone 15 Plus",
+battery: "4,383 mAh",
+screen: "6.7 إنش Super Retina XDR (OLED)",
+processor: "Apple A16 Bionic",
+camera: "48 + 12 ميجابكسل",
+ram: "6 جيجابايت",
+storage: "128/256/512 جيجابايت",
+os: "iOS 17",
+weight: "201 جرام"
+},
+iphone15promax: {
+name: "iPhone 15 Pro Max",
+battery: "4,422 mAh",
+screen: "6.7 إنش Super Retina XDR (OLED) بـ ProMotion",
+processor: "Apple A17 Pro",
+camera: "48 + 12 + 12 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "256/512/1024 جيجابايت",
+os: "iOS 17",
+weight: "221 جرام"
+},
+iphone15Pro: {
+name: "iPhone 15 Pro",
+battery: "3,274 mAh",
+screen: "6.1 إنش Super Retina XDR (OLED) بـ ProMotion (120Hz)",
+processor: "Apple A17 Pro",
+camera: "48 + 12 + 12 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "128/256/512/1024 جيجابايت",
+os: "iOS 17",
+weight: "187 جرام"
+},
+iphone16: {
+name: "iPhone 16",
+battery: "3,561 mAh",
+screen: "6.1 إنش Super Retina XDR (OLED)",
+processor: "Apple A18",
+camera: "48 + 12 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "128/256/512 جيجابايت",
+os: "iOS 18",
+weight: "170 جرام"
+},
+iphone16plus: {
+name: "iPhone 16 Plus",
+battery: "4,674 mAh", // سعة تقديرية
+screen: "6.7 إنش Super Retina XDR (OLED)",
+processor: "Apple A18",
+camera: "48 + 12 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "128/256/512 جيجابايت",
+os: "iOS 18",
+weight: "199 جرام" // وزن تقديري
+},
+iphone16pro: {
+name: "iPhone 16 Pro",
+battery: "3,355 mAh", // سعة تقديرية
+screen: "6.3 إنش Super Retina XDR (OLED) بـ ProMotion (120Hz)",
+processor: "Apple A18 Pro",
+camera: "48 + 48 + 12 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "128/256/512/1024 جيجابايت",
+os: "iOS 18",
+weight: "187 جرام" // وزن تقديري
+},
+iphone16promax: {
+name: "iPhone 16 Pro Max",
+battery: "4,685 mAh",
+screen: "6.9 إنش Super Retina XDR (OLED) بـ ProMotion (120Hz)",
+processor: "Apple A18 Pro",
+camera: "48 + 48 + 12 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "256/512/1024 جيجابايت",
+os: "iOS 18",
+weight: "227 جرام"
+},
+iphone17: {
+name: "iPhone 17",
+battery: "3,692 mAh",
+screen: "6.3 إنش LTPO Super Retina XDR (OLED) بـ 120Hz",
+processor: "Apple A19",
+camera: "48 + 48 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "256/512 جيجابايت",
+os: "iOS 19",
+weight: "177 جرام"
+},
+iphone17plus: {
+name: "iPhone 17 Plus",
+battery: "4,000 mAh", // سعة تقديرية
+screen: "6.7 إنش LTPO Super Retina XDR (OLED) بـ 120Hz",
+processor: "Apple A19",
+camera: "48 + 48 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "256/512 جيجابايت",
+os: "iOS 19",
+weight: "190 جرام" // وزن تقديري
+},
+iphone17pro: {
+name: "iPhone 17 Pro",
+battery: "3,700 mAh", // سعة تقديرية
+screen: "6.3 إنش LTPO Super Retina XDR (OLED) بـ ProMotion (120Hz)",
+processor: "Apple A19 Pro",
+camera: "48 + 48 + 12 ميجابكسل",
+ram: "8 جيجابايت",
+storage: "256/512/1024 جيجابايت",
+os: "iOS 19",
+weight: "185 جرام" // وزن تقديري
+},
+iphone17promax: {
+name: "iPhone 17 Pro Max",
+battery: "4,200 mAh", // سعة تقديرية
+screen: "6.9 إنش LTPO Super Retina XDR (OLED) بـ ProMotion (120Hz)",
+processor: "Apple A19 Pro",
+camera: "48 + 48 + 12 ميجابكسل",
+ram: "8/12 جيجابايت",
+storage: "256/512/1024 جيجابايت",
+os: "iOS 19",
+weight: "225 جرام" ,
+},
+ redminot14proplus5G: {
+name: "Xiaomi Redmi Note 14 Pro+ 5G",
+battery: "5110 mAh",
+screen: "6.67 انش AMOLED 120Hz 1.5K",
+processor: "Snapdragon 7s Gen 3 (4nm)",
+camera: "200 + 8 + 2 ميجابكسل",
+ram: "8/12 جيجابايت",
+storage: "256/512 جيجابايت",
+os: "Android 14 (HyperOS)",
+weight: "205 g",
+},
+    redminot14pro4G: {
+name: "Xiaomi Redmi Note 14 Pro 4G",
+battery: "5500 mAh",
+screen: "6.67 انش AMOLED 120Hz",
+processor: "MediaTek Helio G100-Ultra (6nm)",
+camera: "200 + 8 + 2 ميجابكسل",
+ram: "8/12 جيجابايت",
+storage: "256/512 جيجابايت",
+os: "Android 14 (HyperOS)",
+weight: "196 g",
+},
+    redminot144G: {
+name: "Xiaomi Redmi Note 14 4G",
+battery: "5500 mAh",
+screen: "6.67 انش AMOLED 120Hz",
+processor: "MediaTek Helio G99 Ultra (6nm)",
+camera: "108 + 2 + 2 ميجابكسل",
+ram: "6/8 جيجابايت",
+storage: "128/256 جيجابايت",
+os: "Android 14 (HyperOS)",
+weight: "196.5 g",
+},
+redminot13pro: {
+name: "Xiaomi Redmi Note 13 Pro",
+battery: "5100 mAh",
+screen: "6.67 انش AMOLED",
+processor: "MediaTek Helio G99",
+camera: "200 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 جيجا بايت",
+os: "Android 13 (MIUI 14)",
+weight: "187 g",
+    },
+    redmiK70Pro: {
+name: "Xiaomi Redmi K70 Pro",
+battery: "5000 mAh",
+screen: "6.67 انش OLED 2K",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 12 + 5 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 14 (HyperOS)",
+weight: "209 g",
+    },
+   redmi13C: {
+name: "Xiaomi Redmi 13C",
+battery: "5000 mAh",
+screen: "6.74 انش LCD 90Hz",
+processor: "MediaTek Helio G99",
+camera: "50 + 2 ميجابكسل",
+ram: "6 GB",
+storage: "128 GB",
+os: "Android 13 (MIUI 14)",
+weight: "192 g",
+
+},
+    
+    redminot12:{
+name: "Xiaomi Redmi Note 12",
+battery: "5000 mAh",
+screen: "6.67 انش AMOLED",
+processor: "Snapdragon 685",
+camera: "48 + 8 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "128 GB",
+os: "Android 12 (MIUI 13)",
+weight: "183.5 g",
+
+},
+    redmiK60:{
+name: "Xiaomi Redmi K60",
+battery: "5500 mAh",
+screen: "6.67 انش OLED 2K",
+processor: "Snapdragon 8+ Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "199 g",
+
+},
+    redmiA3:{
+name: "Xiaomi Redmi A3",
+battery: "5000 mAh",
+screen: "6.71 انش LCD",
+processor: "MediaTek Helio G36",
+camera: "8 ميجابكسل",
+ram: "3 GB",
+storage: "64 GB",
+os: "Android 14 (Go)",
+weight: "193 g",
+
+},
+    
+    redminot135G: {
+name: "Xiaomi Redmi Note 13 5G",
+battery: "5000 mAh",
+screen: "6.6 انش AMOLED",
+processor: "Dimensity 6080",
+camera: "108 + 8 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "173.5 g",
+},
+    redmi12:{
+name: "Xiaomi Redmi 12",
+battery: "5000 mAh",
+screen: "6.79 انش LCD",
+processor: "MediaTek Helio G88",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "128 GB",
+os: "Android 13 (MIUI 14)",
+weight: "198.5 g",
+
+},
+    redmiK70E:{
+name: "Xiaomi Redmi K70E",
+battery: "5500 mAh",
+screen: "6.67 انش OLED",
+processor: "Dimensity 8300 Ultra",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 14 (HyperOS)",
+weight: "198 g",
+
+},
+    redminot11Pro: {
+name: "Xiaomi Redmi Note 11 Pro",
+battery: "5000 mAh",
+screen: "6.67 انش AMOLED",
+processor: "Snapdragon 695",
+camera: "108 + 8 + 2 ميجابكسل",
+ram: "6 GB",
+storage: "128 GB",
+os: "Android 11 (MIUI 13)",
+weight: "202 g",
+
+},
+    redmi102022: {
+name: "Xiaomi Redmi 10 2022",
+battery: "5000 mAh",
+screen: "6.71 انش LCD",
+processor: "MediaTek Helio G88",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "128/64 GB",
+os: "Android 12 (MIUI 13)",
+weight: "181 g",
+
+},
+     redminot12S: {
+name: "Xiaomi Redmi Note 12S",
+battery: "5000 mAh",
+screen: "6.43 انش AMOLED",
+processor: "MediaTek Helio G96",
+camera: "108 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "176 g",
+
+},
+   redminot13proplus: {
+name: "Xiaomi Redmi Note 13 Proplus",
+battery: "5000 mAh",
+screen: "6.67 انش AMOLED",
+processor: "Dimensity 7200 Ultra",
+camera: "200 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 13 (MIUI 14)",
+weight: "199 g",
+},
+   pocoF6pro: {
+        name: "POCO F6 Pro",
+battery: "5000 mAh",
+screen: "6.67 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 14 (HyperOS)",
+weight: "209 g",
+
+},
+   pocoX6pro: {
+name: "POCO X6 Pro",
+battery: "5000 mAh",
+screen: "6.67 انش AMOLED",
+processor: "Dimensity 8300 Ultra",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 14 (HyperOS)",
+weight: "186 g",
+
+},
+   pocoF5: {
+name: "POCO F5",
+battery: "5000 mAh",
+screen: "6.67 انش AMOLED",
+processor: "Snapdragon 7+ Gen 2",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "181 g",
+
+},
+   pcocoX5pro: {
+name: "POCO X5 Pro",
+battery: "5000 mAh",
+screen: "6.67 انش AMOLED",
+processor: "Snapdragon 778G",
+camera: "108 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (MIUI 13)",
+weight: "181 g",
+
+},
+    pocoM6pro:{
+name: "POCO M6 Pro",
+battery: "5000 mAh",
+screen: "6.67 انش AMOLED",
+processor: "MediaTek Helio G99",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 13 (MIUI 14)",
+weight: "179 g",
+
+},
+     pocoC65: {
+name: "POCO C65",
+battery: "5000 mAh",
+screen: "6.74 انش LCD",
+processor: "MediaTek Helio G85",
+camera: "50 + 2 ميجابكسل",
+ram: "6 GB",
+storage: "128 GB",
+os: "Android 13 (MIUI 14)",
+weight: "192 g",
+
+},
+     pocoF4: {
+name: "POCO F4",
+battery: "4500 mAh",
+screen: "6.67 انش AMOLED",
+processor: "Snapdragon 870",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (MIUI 13)",
+weight: "195 g",
+
+},
+    pocoX4GT: {
+name: "POCO X4 GT",
+battery: "5080 mAh",
+screen: "6.6 انش LCD 144Hz",
+processor: "Dimensity 8100",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (MIUI 13)",
+weight: "200 g",
+
+},
+    pocoM5:{
+name: "POCO M5",
+battery: "5000 mAh",
+screen: "6.58 انش LCD",
+processor: "MediaTek Helio G99",
+camera: "50 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "64 GB",
+os: "Android 12 (MIUI 13)",
+weight: "201 g",
+
+},
+    pocoF5pro: {
+name: "POCO F5 Pro",
+battery: "5160 mAh",
+screen: "6.67 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "204 g",
+
+},
+     pocoX6: {
+name: "POCO X6",
+battery: "5100 mAh",
+screen: "6.67 انش AMOLED",
+processor: "Snapdragon 7s Gen 2",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (MIUI 14)",
+weight: "181 g",
+
+},
+    pocoM5S:{
+name: "POCO M5s",
+battery: "5000 mAh",
+screen: "6.43 انش AMOLED",
+processor: "MediaTek Helio G95",
+camera: "64 + 8 + 2 + 2 ميجابكسل",
+ram: "6 GB",
+storage: "128 GB",
+os: "Android 12 (MIUI 13)",
+weight: "178.8 g",
+
+},
+    pocoF3:{
+name: "POCO F3",
+battery: "4520 mAh",
+screen: "6.67 انش AMOLED",
+processor: "Snapdragon 870",
+camera: "48 + 8 + 5 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 11 (MIUI 12)",
+weight: "196 g",
+
+},
+    pocoC55:{
+name: "POCO C55",
+battery: "5000 mAh",
+screen: "6.71 انش LCD",
+processor: "MediaTek Helio G85",
+camera: "50 + 2 ميجابكسل",
+ram: "6 GB",
+storage: "128 GB",
+os: "Android 12 (MIUI 13)",
+weight: "193.5 g",
+
+},
+     pocoX3pro: {
+name: "POCO X3 Pro",
+battery: "5160 mAh",
+screen: "6.67 انش LCD 120Hz",
+processor: "Snapdragon 860",
+camera: "48 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 11 (MIUI 12)",
+weight: "215 g",
+
+},
+   oppofindX7ultra: {
+        name: "OPPO Find X7 Ultra",
+battery: "5000 mAh",
+screen: "6.82 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 50 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 14 (ColorOS 14)",
+weight: "221 g",
+
+},
+    opporeno12pro:{
+name: "OPPO Reno 12 Pro",
+battery: "5000 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Dimensity 9200",
+camera: "50 + 50 + 8 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 14 (ColorOS 14)",
+weight: "183 g",
+
+},
+    oppofindN3flip: {
+name: "OPPO Find N3 Flip",
+battery: "4300 mAh",
+screen: "6.8 انش AMOLED (قابل للطي)",
+processor: "Dimensity 9200",
+camera: "50 + 48 + 32 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "198 g",
+
+},
+     opporeno11: {
+name: "OPPO Reno 11",
+battery: "4800 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Dimensity 7050",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "182 g",
+
+},
+    oppoA78:{
+name: "OPPO A78",
+battery: "5000 mAh",
+screen: "6.56 انش LCD",
+processor: "Snapdragon 680",
+camera: "50 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (ColorOS 12)",
+weight: "188 g",
+
+},
+     oppofindX6pro: {
+name: "OPPO Find X6 Pro",
+battery: "5000 mAh",
+screen: "6.82 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "216 g",
+
+},
+    opporeno10proplus: {
+name: "OPPO Reno 10 Pro+",
+battery: "4700 mAh",
+screen: "6.74 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "50 + 64 + 8 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "194 g",
+
+},
+    oppoA38:{
+name: "OPPO A38",
+battery: "5000 mAh",
+screen: "6.56 انش LCD",
+processor: "MediaTek Helio G85",
+camera: "50 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "128 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "190 g",
+
+},
+    opporeeno8: {
+name: "OPPO Reno 8",
+battery: "4500 mAh",
+screen: "6.43 انش AMOLED",
+processor: "Dimensity 1300",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (ColorOS 12)",
+weight: "179 g",
+
+},
+    oppofindX5pro: {
+name: "OPPO Find X5 Pro",
+battery: "5000 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Snapdragon 8 Gen 1",
+camera: "50 + 50 + 13 ميجابكسل",
+ram: "12 GB",
+storage: "512 GB",
+os: "Android 12 (ColorOS 12)",
+weight: "218 g",
+},
+   opporeno11F: {
+name: "OPPO Reno 11 F",
+battery: "5000 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Dimensity 7050",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 14 (ColorOS 14)",
+weight: "177 g",
+
+},
+     oppoA18: {
+name: "OPPO A18",
+battery: "5000 mAh",
+screen: "6.56 انش LCD",
+processor: "MediaTek Helio G85",
+camera: "8 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "128 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "188 g",
+
+},
+   opporeno9proplus: {
+name: "OPPO Reno 9 Pro+",
+battery: "4700 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "192 g",
+  
+},
+    oppoA58:{
+name: "OPPO A58",
+battery: "5000 mAh",
+screen: "6.72 انش LCD",
+processor: "Dimensity 700",
+camera: "50 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 12 (ColorOS 12)",
+weight: "188 g",
+
+},
+    oppofindN2flip: {
+name: "OPPO Find N2 Flip",
+battery: "4300 mAh",
+screen: "6.8 انش AMOLED",
+processor: "Dimensity 9000+",
+camera: "50 + 8 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 13 (ColorOS 13)",
+weight: "191 g",
+
+},
+    oneplus12:{
+        name: "OnePlus 12",
+battery: "5400 mAh",
+screen: "6.82 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 48 + 64 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 14 (OxygenOS 14)",
+weight: "220 g",
+
+},
+     oneplus12R: {
+name: "OnePlus 12R",
+battery: "5500 mAh",
+screen: "6.78 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "256 GB",
+os: "Android 14 (OxygenOS 14)",
+weight: "207 g",
+
+},
+    oneplusopen: {
+name: "OnePlus Open",
+battery: "4805 mAh",
+screen: "7.82 انش AMOLED (قابل للطي)",
+processor: "Snapdragon 8 Gen 2",
+camera: "48 + 48 + 64 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (OxygenOS 13)",
+weight: "239 g",
+
+},
+    oneplus11: {
+name: "OnePlus 11",
+battery: "5000 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 48 + 32 ميجابكسل",
+ram: "16 GB",
+storage: "256 GB",
+os: "Android 13 (OxygenOS 13)",
+weight: "205 g",
+
+},
+     oneplusnord3: {
+name: "OnePlus Nord 3",
+battery: "5000 mAh",
+screen: "6.74 انش AMOLED",
+processor: "Dimensity 9000",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "256 GB",
+os: "Android 13 (OxygenOS 13)",
+weight: "193.5 g",
+
+},
+    oneplus10pro: {
+name: "OnePlus 10 Pro",
+battery: "5000 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Snapdragon 8 Gen 1",
+camera: "48 + 50 + 8 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 12 (OxygenOS 12)",
+weight: "200.5 g",
+
+},
+    oneplusnordCE4: {
+name: "OnePlus Nord CE 4",
+battery: "5500 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Snapdragon 7 Gen 3",
+camera: "50 + 8 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 14 (OxygenOS 14)",
+weight: "186 g",
+
+},
+    oneplus10T: {
+name: "OnePlus 10T",
+battery: "4800 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "256 GB",
+os: "Android 12 (OxygenOS 12)",
+weight: "203.5 g",
+
+},
+    oneplusnord2T: {
+name: "OnePlus Nord 2T",
+battery: "4500 mAh",
+screen: "6.43 انش AMOLED",
+processor: "Dimensity 1300",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 12 (OxygenOS 12)",
+weight: "190 g",
+
+},
+     oneplus9pro: {
+name: "OnePlus 9 Pro",
+battery: "4500 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Snapdragon 888",
+camera: "48 + 50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 11 (OxygenOS 11)",
+weight: "197 g",
+
+},
+    oneplusNordN30: {
+name: "OnePlus Nord N30",
+battery: "5000 mAh",
+screen: "6.72 انش LCD",
+processor: "Snapdragon 695",
+camera: "108 + 2 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "128 GB",
+os: "Android 13 (OxygenOS 13)",
+weight: "195 g",
+
+},
+     oneplus10R: {
+name: "OnePlus 10R",
+battery: "5000 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Dimensity 8100 Max",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 12 (OxygenOS 12)",
+weight: "183 g",
+
+},
+   oneplusnordCE3: {
+name: "OnePlus Nord CE 3",
+battery: "5000 mAh",
+screen: "6.7 انش AMOLED",
+processor: "Snapdragon 782G",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 13 (OxygenOS 13)",
+weight: "170 g",
+
+},
+     oneplus9: {
+name: "OnePlus 9",
+battery: "4500 mAh",
+screen: "6.55 انش AMOLED",
+processor: "Snapdragon 888",
+camera: "48 + 50 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 11 (OxygenOS 11)",
+weight: "192 g",
+
+},
+    oneplusnordN200:{
+name: "OnePlus Nord N200",
+battery: "5000 mAh",
+screen: "6.49 انش LCD",
+processor: "Snapdragon 480",
+camera: "13 + 2 + 2 ميجابكسل",
+ram: "4 GB",
+storage: "64 GB",
+os: "Android 11 (OxygenOS 11)",
+weight: "189 g",
+
+},
+    redmagic9pro:{
+name: "Red Magic 9 Pro",
+battery: "6500 mAh",
+screen: "6.8 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 14 (RedMagic OS 9)",
+weight: "229 g",
+
+},
+    redmagic8pro:{
+name: "Red Magic 8 Pro",
+battery: "6000 mAh",
+screen: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (RedMagic OS 8)",
+weight: "228 g",
+  
+},
+    redmagic9Spro:{
+name: "Red Magic 9S Pro",
+battery: "6500 mAh",
+screen: "6.8 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3 Leading",
+camera: "50 + 50 ميجابكسل",
+ram: "24 GB",
+storage: "1 TB",
+os: "Android 14 (RedMagic OS 9.5)",
+weight: "229 g",
+  
+},
+    redmagic7pro:{
+name: "Red Magic 7 Pro",
+battery: "5000 mAh",
+screen: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "256 GB",
+os: "Android 12 (RedMagic OS 5)",
+weight: "215 g",
+  
+},
+     redmagic8Spro:{
+name: "Red Magic 8S Pro",
+battery: "6000 mAh",
+screen: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (RedMagic OS 8)",
+weight: "228 g",
+  
+},
+    redmagic6pro: {
+name: "Red Magic 6 Pro",
+battery: "5050 mAh",
+screen: "6.8 انش AMOLED 165Hz",
+processor: "Snapdragon 888",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 11 (RedMagic OS 4)",
+weight: "220 g",
+  
+},
+     redmagic7:{
+name: "Red Magic 7",
+battery: "4500 mAh",
+screen: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 12 (RedMagic OS 5)",
+weight: "215 g",
+  
+},
+     redmagic8proplus: {
+name: "Red Magic 8 Pro+",
+battery: "5000 mAh",
+screen: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 2",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 13 (RedMagic OS 8)",
+weight: "230 g",
+  
+},
+    redmagic6Spro:{
+name: "Red Magic 6S Pro",
+battery: "5050 mAh",
+screen: "6.8 انش AMOLED",
+processor: "Snapdragon 888+",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 11 (RedMagic OS 4)",
+weight: "215 g",
+  
+},
+     redmagic9proplus: {
+name: "Red Magic 9 Pro+",
+battery: "5500 mAh",
+screen: "6.8 انش AMOLED",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 50 ميجابكسل",
+ram: "24 GB",
+storage: "1 TB",
+os: "Android 14 (RedMagic OS 9)",
+weight: "230 g",
+  
+},
+     redmagic7Spro: {
+name: "Red Magic 7S Pro",
+battery: "5000 mAh",
+screen: "6.8 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "18 GB",
+storage: "512 GB",
+os: "Android 12 (RedMagic OS 5)",
+weight: "215 g",
+  
+},
+     redmagic6: {
+name: "Red Magic 6",
+battery: "5050 mAh",
+screen: "6.8 انش AMOLED",
+processor: "Snapdragon 888",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 11 (RedMagic OS 4)",
+weight: "220 g",
+  
+},
+    redmagic5G:{
+name: "Red Magic 5G",
+battery: "4500 mAh",
+screen: "6.65 انش AMOLED",
+processor: "Snapdragon 865",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "8 GB",
+storage: "128 GB",
+os: "Android 10 (RedMagic OS 3)",
+weight: "218 g",
+  
+},
+     redmagic7S: {
+name: "Red Magic 7S",
+battery: "4500 mAh",
+screen: "6.8 انش AMOLED",
+processor: "Snapdragon 8+ Gen 1",
+camera: "64 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 12 (RedMagic OS 5)",
+weight: "215 g",
+  
+},
+     redmagic3S: {
+name: "Red Magic 3S",
+battery: "5000 mAh",
+screen: "6.65 انش AMOLED",
+processor: "Snapdragon 855+",
+camera: "48 ميجابكسل",
+ram: "8 GB",
+storage: "128 GB",
+os: "Android 9 (RedMagic OS 2)",
+weight: "215 g",
+  
+},
+     redmagic11air: {
+name: "Red Magic 11 Air",
+battery: "7000 mAh",
+screen: "6.85 انش AMOLED 144Hz 1.5K",
+processor: "Snapdragon 8 Elite (3nm)",
+camera: "50 + 50 ميجابكسل",
+ram: "12/16 GB",
+storage: "256/512 GB",
+os: "Android 16 (RedMagic OS 11)",
+weight: "207 g",
+  
+},
+    redmagic11proplusgoldensaga: {
+name: "Red Magic 11 Pro+ Golden Saga",
+battery: "6500 mAh",
+screen: "6.85 انش AMOLED 144Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 ميجابكسل",
+ram: "24 GB",
+storage: "1 TB",
+os: "Android 16 (RedMagic OS 11)",
+weight: "229 g",
+  
+},
+    redmagic11pro:{
+name: "Red Magic 11 Pro",
+battery: "6500 mAh",
+screen: "6.85 انش AMOLED 144Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 ميجابكسل",
+ram: "16/24 GB",
+storage: "512 GB/1 TB",
+os: "Android 16 (RedMagic OS 11)",
+weight: "228 g",
+  
+},
+    redmagicgamingtablet3pro: {
+name: "Red Magic Gaming Tablet 3 Pro",
+battery: "10000 mAh",
+screen: "10.9 انش AMOLED 144Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (RedMagic OS 11)",
+weight: "530 g",
+  
+},
+     redmagic11Spro: {
+name: "Red Magic 11S Pro",
+battery: "6800 mAh",
+screen: "6.85 انش AMOLED 144Hz",
+processor: "Snapdragon 8+ Elite",
+camera: "50 + 50 ميجابكسل",
+ram: "18 GB",
+storage: "512 GB",
+os: "Android 16 (RedMagic OS 11.5)",
+weight: "225 g",
+  
+},
+    oppofindX9ultra: {  
+        name: "OPPO Find X9 Ultra",
+battery: "7000 mAh",
+screen: "6.82 انش AMOLED 120Hz 2K",
+processor: "Snapdragon 8 Elite Gen 5 (3nm)",
+camera: "200 + 200 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB/1 TB",
+os: "Android 16 (ColorOS 16)",
+weight: "218 g",
+  
+},
+    oppofindX9pro: {  
+name: "OPPO Find X9 Pro",
+battery: "6000 mAh",
+screen: "6.8 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (ColorOS 16)",
+weight: "205 g",
+  
+},
+    oppofindX9: {  
+name: "OPPO Find X9",
+battery: "5800 mAh",
+screen: "6.7 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 + 8 ميجابكسل",
+ram: "12 GB",
+storage: "256/512 GB",
+os: "Android 16 (ColorOS 16)",
+weight: "195 g",
+  
+},
+    opporeno14proplus: {  
+name: "OPPO Reno 14 Pro+",
+battery: "5500 mAh",
+screen: "6.74 انش AMOLED 120Hz",
+processor: "Dimensity 9400",
+camera: "50 + 50 + 50 ميجابكسل",
+ram: "12/16 GB",
+storage: "256/512 GB",
+os: "Android 16 (ColorOS 16)",
+weight: "185 g",
+  
+},
+     oppofindN5: {  
+name: "OPPO Find N5",
+battery: "5600 mAh",
+screen: "7.1 انش AMOLED (قابل للطي) 120Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 48 + 32 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (ColorOS 16)",
+weight: "239 g",
+  
+},
+   oneplusnord6: {
+name: "OnePlus Nord 6",
+battery: "9000 mAh",
+screen: "6.78 انش AMOLED 165Hz 1.5K",
+processor: "Snapdragon 8s Gen 4 (3nm)",
+camera: "50 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256 GB",
+os: "Android 16 (OxygenOS 16)",
+weight: "195 g",
+  
+},
+     oneplus15: {
+name: "OnePlus 15",
+battery: "6500 mAh",
+screen: "6.82 انش AMOLED 120Hz 2K",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (OxygenOS 16)",
+weight: "215 g",
+  
+},
+     oneplus15R: {
+name: "OnePlus 15R",
+battery: "6000 mAh",
+screen: "6.74 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12/16 GB",
+storage: "256/512 GB",
+os: "Android 16 (OxygenOS 16)",
+weight: "205 g",
+  
+},
+     oneplusopen2: {
+name: "OnePlus Open 2",
+battery: "6000 mAh",
+screen: "7.82 انش AMOLED (قابل للطي) 120Hz",
+processor: "Snapdragon 8 Elite",
+camera: "48 + 48 + 64 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (OxygenOS 16)",
+weight: "235 g",
+  
+},
+    oneplusace5pro: {
+name: "OnePlus Ace 5 Pro",
+battery: "6100 mAh",
+display: "6.78 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 + 2 ميجابكسل",
+ram: "16/24 GB",
+storage: "512 GB/1 TB",
+os: "Android 16 (ColorOS 16)",
+weight: "210 g",
+},
+    pocoX8promax: {
+name: "POCO X8 Pro Max",
+battery: "9000 mAh",
+display: "6.83 انش AMOLED 120Hz 1.5K",
+processor: "MediaTek Dimensity 9500s (3nm)",
+camera: "50 + 8 ميجابكسل",
+ram: "12/16 GB",
+storage: "256/512 GB",
+os: "Android 16 (HyperOS 3)",
+
+},
+    pocoX8pro:{
+name: "POCO X8 Pro",
+battery: "7560 mAh",
+display: "6.59 انش OLED 120Hz 1.5K",
+processor: "MediaTek Dimensity 8500",
+camera: "50 + 8 ميجابكسل",
+ram: "8/12 GB",
+storage: "256/512 GB",
+os: "Android 16 (HyperOS 3)",
+weight: "195 g",
+
+},
+    pocoC7ultra:{
+name: "POCO F7 Ultra",
+battery: "7000 mAh",
+display: "6.67 انش AMOLED 120Hz 2K",
+processor: "Snapdragon 8 Elite",
+camera: "50 + 50 + 50 ميجابكسل",
+ram: "16 GB",
+storage: "512 GB",
+os: "Android 16 (HyperOS 3)",
+weight: "210 g",
+
+},
+    pocoF7pro:{
+name: "POCO F7 Pro",
+battery: "6500 mAh",
+screen: "6.67 انش AMOLED 120Hz",
+processor: "Snapdragon 8 Gen 3",
+camera: "50 + 8 + 2 ميجابكسل",
+ram: "12 GB",
+storage: "256/512 GB",
+os: "Android 16 (HyperOS 3)",
+weight: "200 g",
+
+},
+    pocoM7pro5G: {
+name: "POCO M7 Pro 5G",
+battery: "5500 mAh",
+display: "6.67 انش AMOLED 120Hz",
+processor: "Dimensity 7300",
+camera: "50 + 8 ميجابكسل",
+ram: "8 GB",
+storage: "256 GB",
+os: "Android 16 (HyperOS 3)",
+weight: "185 g",
+
+}
+
+
+
+        };
+
+    
+
+        // دالة للتحقق وبدء المقارنة تلقائياً عند تغيير الاختيار
+        function checkAndCompare() {
+            const phone1 = document.getElementById('phone1').value;
+            const phone2 = document.getElementById('phone2').value;
+            
+            if (phone1 && phone2) {
+                if (phone1 !== phone2) {
+                    comparePhones();
+                }
+            }
+        }
+
+        // دالة المقارنة الرئيسية
+        function comparePhones() {
+            const phone1Value = document.getElementById('phone1').value;
+            const phone2Value = document.getElementById('phone2').value;
+            
+            // التحقق من اختيار هاتفين
+            if (!phone1Value || !phone2Value) {
+                alert('❌ الرجاء اختيار هاتفين للمقارنة');
+                return;
+            }
+            
+            // التحقق من أن الهاتفين مختلفين
+            if (phone1Value === phone2Value) {
+                alert('❌ الرجاء اختيار هاتفين مختلفين للمقارنة');
+                return;
+            }
+            
+            // التحقق من وجود البيانات
+            if (!phones[phone1Value] || !phones[phone2Value]) {
+                alert('❌ عذراً، بيانات الهاتف غير متوفرة');
+                return;
+            }
+            
+            // جلب بيانات الهاتفين
+            const phone1 = phones[phone1Value];
+            const phone2 = phones[phone2Value];
+            
+            // عرض المقارنة
+            displayComparison(phone1, phone2);
+        }
+
+        // دالة عرض المقارنة في الجدول
+        function displayComparison(phone1, phone2) {
+            // إخفاء الرسالة الافتراضية
+            document.getElementById('initialMessage').style.display = 'none';
+            
+            // إظهار جدول المقارنة
+            const table = document.getElementById('comparisonTable');
+            table.style.display = 'table';
+            
+            // قائمة المواصفات
+            const specs = [
+                { key: 'battery', name: 'البطارية', icon: 'fa-battery-full', color: '#4caf50' },
+                { key: 'screen', name: 'الشاشة', icon: 'fa-tv', color: '#2196f3' },
+                { key: 'processor', name: 'المعالج', icon: 'fa-microchip', color: '#ff9800' },
+                { key: 'camera', name: 'الكاميرا الخلفية', icon: 'fa-camera', color: '#e91e63' },
+                { key: 'ram', name: 'الذاكرة العشوائية', icon: 'fa-memory', color: '#9c27b0' },
+                { key: 'storage', name: 'مساحة التخزين', icon: 'fa-database', color: '#ff5722' },
+                { key: 'os', name: 'نظام التشغيل', icon: 'fa-code', color: '#607d8b' },
+                { key: 'weight', name: 'الوزن', icon: 'fa-weight-hanging', color: '#795548' }
+            ];
+            
+            // بناء HTML الجدول
+            let html = '';
+            
+            // صف أسماء الهواتف
+            html += `<tr class="phone-name-header">
+                <td><i class="fas fa-info-circle" style="color: #667eea;"></i> الهاتف</td>
+                <td><strong>${phone1.name}</strong></td>
+                <td><strong>${phone2.name}</strong></td>
+            </tr>`;
+            
+            // صفوف المواصفات
+            specs.forEach(spec => {
+                html += `<tr>
+                    <td>
+                        <i class="fas ${spec.icon} spec-icon" style="color: ${spec.color};"></i>
+                        ${spec.name}
+                    </td>
+                    <td>${phone1[spec.key]}</td>
+                    <td>${phone2[spec.key]}</td>
+                </tr>`;
+            });
+            
+            // إضافة الجدول للصفحة
+            table.innerHTML = html;
+            
+            // تمرير سلس لنتيجة المقارنة
+            document.getElementById('comparisonResult').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // رسالة تأكيد
+            console.log('✅ تمت المقارنة بنجاح');
+        }
+
+        // عند تحميل الصفحة
+        window.onload = function() {
+            console.log('✅ صفحة المقارنة جاهزة');
+        };
+    </script>
+
+</body>
+</html>
